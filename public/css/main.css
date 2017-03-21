@@ -1,6 +1,12 @@
 @import url(http://weloveiconfonts.com/api/?family=entypo);
 @import url(http://fonts.googleapis.com/css?family=Muli);
 
+.badgeArea {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 body {
   display: -webkit-box;
   display: -moz-box;
@@ -172,7 +178,8 @@ a:hover {
 .larg {
   max-width:960px;
   margin:30px auto;
-  padding:0 30px;
+  padding:0 85px;
+}
 
   & div {
     background-color: #F7F7F7;
