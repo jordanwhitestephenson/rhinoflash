@@ -9,13 +9,14 @@ $(document).ready(function() {
     $('#member').on("click", "a", function() {
         $.ajax({
             method: 'GET',
-            url: `https://flash-backend.herokuapp.com/username/${myEmail}`,
+            url: `https://rhinocards.herokuapp.com/username/${myEmail}`,
             contentType: "application/json",
             data: JSON.stringify()
         }).then(function(users) {
             console.log(users);
             $('.div1 h3').text('Welcome : ' + users[0].name + ' !');
             $('.userDecks h3').text(users[0].name + " 's" + 'Decks : ');
+
 
             var unique = _.uniqBy(users, 'deck_name')
             var pluck = unique.map(function(deck) {
@@ -61,9 +62,9 @@ $(document).ready(function() {
         $('.div3').children('h3').html(statOverview);
 
         var imageArray = ['"../img/profile/blackcugpink.png"', '"../img/profile/slothpink.png"','"../img/profile/pugpink.png"', '"../img/profile/goatpink.png"', '"../img/profile/monkeypink.png"']
-        var random = Math.floor((Math.random() * 10) + 1);
+        var random = Math.floor((Math.random() * 4) + 1);
 
-        $('.imageDiv').children('p').html('<img src =' + imageArray[random] + '>');
+        $('.imageDiv').children('p').append('<img src =' + imageArray[random] + '>');
 
     });
 });
