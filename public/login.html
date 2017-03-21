@@ -39,18 +39,17 @@
     <div class="section no-pad-bot" id="index-banner">
         <div class="container">
 
-          <form method="get" class="login-form" name="user-login">
+          <form class="login-form">
               <div class="login-form__header">
                 <p>Flat User Login</p>
               </div>
             <div class="login-form__content-bg">
             <span class="login-form__notification">Please Login To Flash Rhino.</span>
-                <input type="text" class="login-form__field  login-form__field--name" name="login-form__name"         placeholder="password" required/>
+                <input type="text" class="login-form__field  login-form__field--name" placeholder="name" required/>
 
-                <input type="password" class="login-form__field  login-form__field--password" name="<login->            </login->form__password" placeholder="username" required/>
+                <input type="text" class="login-form__field  login-form__field--email"  placeholder="email" required/>
 
-              <button type="submit" class="login-form__submit">Login</button>
-
+              <button type="submit" id = "loginButton" class="login-form__submit">Login</button>
               <span class="login-form__line"></span>
 
               <ul class="login-form__social-list">
@@ -88,6 +87,7 @@
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="js/materialize.js"></script>
     <script src="js/init.js"></script>
+    <script src = "js/login.js"></script>
 
 </body>
 
