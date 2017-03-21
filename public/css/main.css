@@ -178,7 +178,8 @@ a:hover {
 .larg {
   max-width:960px;
   margin:30px auto;
-  padding:0 30px;
+  padding:0 85px;
+}
 
   & div {
     background-color: #F7F7F7;

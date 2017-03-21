@@ -1,8 +1,8 @@
 
 
 $(document).ready(function() {
-  var myLocation = decodeURIComponent(window.location.search).split("=")[1];
-  console.log(myLocation)
+  var myEmail = decodeURIComponent(window.location.search).split("=")[1];
+  console.log(myEmail)
 
     $('body').on("click", ".larg div h3", function() {
         $(this).parent().children('p').slideToggle(250)
@@ -12,23 +12,21 @@ $(document).ready(function() {
     $('#member').on("click", "a", function() {
         $.ajax({
             method: 'GET',
-            url: 'https://flash-backend.herokuapp.com/username/Jeff@gmail.com',
+            url: `https://flash-backend.herokuapp.com/username/${'myEmail'}`,
             contentType: "application/json",
             data: JSON.stringify()
         }).then(function(users) {
             console.log(users)
-            $('.div1 h3').text('Welcome : ' + users[0].name + ' !');
-            $('.userDecks h3').text(users[0].name + "'s" + 'Decks : ' )
+            $('.div1 h3').text('Welcome : ' + users.name + ' !');
+            $('.userDecks h3').text(users.name + "'s" + 'Decks : ' )
 
 
             for (var i = 0; i < users.length; i ++) {
-              var userDeck = users[i].deck_name;
+              var userDeck = users.deck_name;
               $('.userDecks p').html(`<a href ="userDeck"> * ${userDeck} </a>` + `<a href ="userDeck"> * ${userDeck} </a>`);
             }
 
-
-
-            if (users[0].fiveDeckBadge <= 5){
+            if (users.fiveDeckBadge <= 5){
               $.get('https://flash-backend.herokuapp.com/badge', function(data) {
                    var fivebadgeimg = data[0].pathTo5Badge;
                    $('.badgeArea').append('<img src =' + fivebadgeimg + '>')
