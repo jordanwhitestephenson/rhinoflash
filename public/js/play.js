@@ -19,13 +19,15 @@ $(document).ready(function() {
         vocabWords = data.feed.entry;
         numVocabWords = vocabWords.length;
     });
-    var flashcard = document.getElementById('flashcard');
-    var refreshBtns = document.getElementsByClassName('refresh');
-
-    flashcard.addEventListener('click', function() {
-        this.classList.toggle('flipped');
-    }, false);
-
+    // var flashcard = document.getElementById('flashcard');
+    // var refreshBtns = document.getElementsByClassName('refresh');
+    //
+    // $(document).on('click', '#flashcard', function(event) {
+    //     event.preventDefault();
+    //     console.log('flipped from play.js')
+    //     this.classList.toggle('flipped');
+    // });
+});
     // window.addEventListener('keydown', checkKeyPressed, false);
 
     // function checkKeyPressed(e) {
@@ -44,23 +46,23 @@ $(document).ready(function() {
     // down = 40
     // spaceBar: 32
 
-    for (i = 0; i < refreshBtns.length; i++) {
-        refreshBtns[i].addEventListener('click', function(e) {
-            e.stopPropagation();
-            e.preventDefault();
-            var randomNum = getRandomInt(0, numVocabWords);
-            newWord = vocabWords[randomNum];
-            var enContent = document.getElementById('flashcard--content_en');
-            var esContent = document.getElementById('flashcard--content_es');
-            enContent.textContent = newWord.gsx$en.$t;
-            esContent.textContent = newWord.gsx$es.$t;
-        }, false);
-    }
-
-    function getRandomInt(min, max) {
-        return Math.floor(Math.random() * (max - min)) + min;
-    }
-})
+//     for (i = 0; i < refreshBtns.length; i++) {
+//         refreshBtns[i].addEventListener('click', function(e) {
+//             e.stopPropagation();
+//             e.preventDefault();
+//             var randomNum = getRandomInt(0, numVocabWords);
+//             newWord = vocabWords[randomNum];
+//             var enContent = document.getElementById('flashcard--content_en');
+//             var esContent = document.getElementById('flashcard--content_es');
+//             enContent.textContent = newWord.gsx$en.$t;
+//             esContent.textContent = newWord.gsx$es.$t;
+//         }, false);
+//     }
+//
+//     function getRandomInt(min, max) {
+//         return Math.floor(Math.random() * (max - min)) + min;
+//     }
+// })
 
 // ***PREV NEXT BUTTONS***
 
