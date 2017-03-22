@@ -20,7 +20,6 @@ $(document).ready(function() {
 // <--clicking on user overview-->
     $('#member').on("click", "a", function() {
       $('#welcomeBear').remove()
-
         $.ajax({
             method: 'GET',
             url: `https://rhinocards.herokuapp.com/username/${myEmail}`,
@@ -28,10 +27,15 @@ $(document).ready(function() {
             data: JSON.stringify()
         }).then(function(users) {
             console.log(users);
+            $('.imageDiv *').remove();
+
+            $('.div2 p ').remove();
+
+
             $('.div1 h3').text('Welcome : ' + users[0].name + ' !');
             $('.userDecks h3').text(users[0].name + " 's" + 'Decks : ');
             $('.userDecks').append(`<h6><a href ="/showDecks.html?email=${myEmail}"> SHOW ALL DECKS </a> </h6>`);
-            $('.imageDiv').children('p').append('<img src =' + imageArray[users[0].userImage] + '>');
+            $('.imageDiv').append('<img src =' + imageArray[users[0].userImage] + '>');
             $('.div2 p').append(`<p> Your Email  : ${users[0].email} </p>`)
             $('.div2').append(`<p> Favorited Subject  : ${users[0].subject_name} </p>`);
 
@@ -39,12 +43,10 @@ $(document).ready(function() {
             var pluck = unique.map(function(deck) {
                 return _.get(deck, 'deck_name')
             });
-            console.log(unique)
             unique.forEach(function(deck) {
-                console.log('this is forEach', deck);
-
                 $('.userDecks p').append(`<div class = "deckcontainer"><a href=${deck.deck_name}</a> ${deck.deck_name}  <button type="button"  class="delete-btn" data-id= ${deck.deck_id}><span i class= "material-icons">delete</i></span></button></div>`);
             });
+
 
 
             //  <--BADGES-->
