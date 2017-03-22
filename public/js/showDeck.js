@@ -2,18 +2,18 @@ var myEmail = decodeURIComponent(window.location.search).split("=")[1];
 console.log(myEmail);
 
 $(document).ready(function() {
-  $('#showDeckClass').on('click', function() {
-      window.location = `/showDecks.html?email=${myEmail}`
-  });
-  $('#showStudyClass').on('click', function() {
-      window.location = `/study.html?email=${myEmail}`
-  });
-  $('#showPlayClass').on('click', function() {
-      window.location = `/play.html?email=${myEmail}`
-  });
-  $('#showDashboardClass').on('click', function() {
-      window.location = `/dashboard.html?email=${myEmail}`
-  });
+    $('#showDeckClass').on('click', function() {
+        window.location = `/showDecks.html?email=${myEmail}`
+    });
+    $('#showStudyClass').on('click', function() {
+        window.location = `/study.html?email=${myEmail}`
+    });
+    $('#showPlayClass').on('click', function() {
+        window.location = `/play.html?email=${myEmail}`
+    });
+    $('#showDashboardClass').on('click', function() {
+        window.location = `/dashboard.html?email=${myEmail}`
+    });
 
 
 
@@ -29,8 +29,8 @@ $(document).ready(function() {
             return _.get(deck, 'deck_name');
         });
         unique.forEach(function(deck) {
-          console.log(unique)
-                  $('.col').append(`<div class="flip-container" id="flashcard" style="margin: 20px;"><div class="front"><div class="flipper"></div>
+            console.log(unique)
+            $('.col').append(`<div class="flip-container" id="flashcard" style="margin: 20px;"><div class="front"><div class="flipper"></div>
                     <span id="flashcard--content_en"><a href="${deck.deck_id}"></a>${deck.deck_name}</span>
                   </div>
                   </div>
@@ -44,12 +44,19 @@ $(document).ready(function() {
             event.preventDefault();
             console.log('FLAGGED!')
             $(this).css({
-              'background-color' : 'yellow',
-              'width' : '30px',
-              'height' : '30px'
-            });
-
+                'background-color': 'yellow',
+                'width': '50px',
+                'height': '40px',
+                'font-size': '8px',
+                'color': '#000',
+                'padding-right': '80px',
+                'font-weight': '600',
+                'padding-bottom': '50px'
+            }).text('Favorited!');
         });
+        // if ($('.favorite').has(":contains('Favorited')")){
+        //     console.log('ya mast')
+        // }
     })
 
 
