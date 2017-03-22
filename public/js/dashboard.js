@@ -1,5 +1,4 @@
-
-    var imageArray = ['"../img/random/blackcugpink.png"', '"../img/random/slothpink.png"', '"../img/random/giraffepink.png"', '"../img/random/kangaroo.png"', '"../img/random/goatpink.png"', '"../img/random/monkeypink.png"', '"../img/random/tazpink.png"' ];
+var imageArray = ['"../img/random/blackcugpink.png"', '"../img/random/slothpink.png"', '"../img/random/giraffepink.png"', '"../img/random/kangaroo.png"', '"../img/random/goatpink.png"', '"../img/random/monkeypink.png"', '"../img/random/tazpink.png"'];
 
 $(document).ready(function() {
     var myEmail = decodeURIComponent(window.location.search).split("=")[1];
@@ -14,12 +13,17 @@ $(document).ready(function() {
         contentType: "application/json",
         data: JSON.stringify()
     }).then(function(users) {
-      $('.title h5').append('<h5>' + 'Hello Rhino Flash Member : ' +  users[0].name + '</h5>')
+        console.log(users)
+        if (users.length === 0) {
+            console.log('YA!!')
+            $('.title').append('<center><p>' + 'We\'re Sorry, You\'re Not a Rhino Flash Member Yet!' + '<br>' + 'Please Register Your Account' + '</center></p>')
+        }
+        $('.title h5').append('<h5>' + 'Hello Rhino Flash Member : ' + users[0].name + '</h5>')
     })
 
-// <--clicking on user overview-->
+    // <--clicking on user overview-->
     $('#member').on("click", "a", function() {
-      $('#welcomeBear').remove()
+        $('#welcomeBear').remove()
         $.ajax({
             method: 'GET',
             url: `https://rhinocards.herokuapp.com/username/${myEmail}`,
@@ -27,11 +31,19 @@ $(document).ready(function() {
             data: JSON.stringify()
         }).then(function(users) {
             console.log(users);
+
+            if (users.length === 0) {
+                console.log('YA!!')
+                $('.div1 h3').append('<center><p>' + 'We\'re Sorry, You\'re Not a Rhino Flash Member Yet!' + '<br>' + 'Please Register Your Account' + '</center></p>')
+                $('.imageDiv').remove()
+                $('.div3 h3').remove()
+                $('.div2').remove() 
+            }
+
             $('.imageDiv *').remove();
             $('.badgeArea *').remove();
             $('.div2  *').remove();
             $('.userDecks *').remove();
-
 
             $('.div1 h3').text('Welcome : ' + users[0].name + ' !');
             $('.userDecks h3').text(users[0].name + " 's" + 'Decks : ');
@@ -53,18 +65,16 @@ $(document).ready(function() {
             //  <--BADGES-->
             if (users[0].fiveDeckBadge >= 5) {
                 $('.badgeArea').append('<img src="../img/5badge.png" height="50px" width="50px">');
-            }
-            else if (users[0].perfectScore >= 1) {
+            } else if (users[0].perfectScore >= 1) {
                 $('.badgeArea').append('<img src="../img/perfectscore.png" height="50px" width="50px">');
+            } else if (users[0].fiveFavorites <= 3) {
+                $('.badgeArea').append('<img src="../img/5commentsbadge.png" height="50px" width="50px">');
+            } else {
+                $('.badgeArea').append('<p>' + "NO BADGES" + '</p>');
             }
 
-            else if (users[0].fiveFavorites <= 3) {
-                $('.badgeArea').append('<img src="../img/5commentsbadge.png" height="50px" width="50px">');
-            }
-            else {
-              $('.badgeArea').append('<p>' + "NO BADGES" + '</p>');
-            }
         });
+
 
 
 
@@ -102,7 +112,7 @@ $(document).ready(function() {
         window.location = `/showDecks.html?email=${myEmail}`
     });
     $('#logout').on("click", "a", function() {
-        window.location =`https://rhinocards.herokuapp.com/logout`
+        window.location = `https://rhinocards.herokuapp.com/logout`
     });
-    
+
 });
