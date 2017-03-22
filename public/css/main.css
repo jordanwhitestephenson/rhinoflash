@@ -7,6 +7,12 @@
   align-items: center;
 }
 
+#monkey {
+margin-top: 100px;
+position: fixed;
+bottom: 0px;
+}
+
 body {
   display: -webkit-box;
   display: -moz-box;
@@ -25,9 +31,9 @@ ul {
   padding:0;
 }
 a {
-  cursor:pointer;
+  cursor:url(img/cursor.png), auto
   display:block;
-  color:#b3b3b3;
+  color:#383b42;
   text-decoration:none;
 }
 .bckg {
@@ -141,14 +147,19 @@ main {
   -ms-flex:1;
 }
 .title {
-  background-color: #fff;
-  border-bottom: 1px solid #C0C1C0;
+  border-radius: 25px;
+  background: #31b5a9;
+  padding: 20px;
   height:60px;
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
   display:flex;
+  justify-content: center;
+  align-items: center;
+
+
 
   & a {
     color: #AAA;
@@ -171,7 +182,7 @@ main {
 }
 
 a:hover {
-  color:#33526B;
+  color:#31b5a9;
   transition:all .5s;
 }
 

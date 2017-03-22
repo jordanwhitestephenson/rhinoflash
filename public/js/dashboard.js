@@ -16,33 +16,32 @@ $(document).ready(function() {
             console.log(users);
             $('.div1 h3').text('Welcome : ' + users[0].name + ' !');
             $('.userDecks h3').text(users[0].name + " 's" + 'Decks : ');
-
+            $('.userDecks').append(`<h6><a href ="/showDecks.html?email=${myEmail}"> SHOW ALL DECKS </a> </h6>`);
 
             var unique = _.uniqBy(users, 'deck_name')
             var pluck = unique.map(function(deck) {
                 return _.get(deck, 'deck_name')
-            })
-            unique.forEach(function(deck){
-              console.log('this is forEach',deck)
-               $('.userDecks p').append(`<div class = "deckcontainer"><a href=${deck.deck_name}</a> ${deck.deck_name}  <button type="button"  class="delete-btn" data-id= ${deck.deck_id}><span i class= "material-icons">delete</i></span></button></div>`);
+            });
 
-            })
+            unique.forEach(function(deck) {
+                console.log('this is forEach', deck);
+                $('.userDecks p').append(`<div class = "deckcontainer"><a href=${deck.deck_name}</a> ${deck.deck_name}  <button type="button"  class="delete-btn" data-id= ${deck.deck_id}><span i class= "material-icons">delete</i></span></button></div>`);
+            });
 
-            console.log('this is pluck',pluck)
-            console.log('this is unique', unique)
-
-          //  <--BADGES-->
+            //  <--BADGES-->
             if (users[0].fiveDeckBadge >= 5) {
                 $('.badgeArea').append('<img src="../img/5badge.png">');
             }
             if (users[0].perfectScore >= 1) {
-                $('.badgeArea').append('<img src="../img/perfectscore.png">')
+                $('.badgeArea').append('<img src="../img/perfectscore.png">');
             }
 
             if (users[0].fiveFavorites <= 3) {
                 $('.badgeArea').append('<img src="../img/5commentsbadge.png">');
             }
         });
+
+
 
         var title = $(this).data('title');
         var userBadges = $(this).data('userbadge');
@@ -61,10 +60,20 @@ $(document).ready(function() {
         $('.div3').children('p').html(userStats);
         $('.div3').children('h3').html(statOverview);
 
-        var imageArray = ['"../img/profile/blackcugpink.png"', '"../img/profile/slothpink.png"','"../img/profile/pugpink.png"', '"../img/profile/goatpink.png"', '"../img/profile/monkeypink.png"']
+        var imageArray = ['"../img/profile/blackcugpink.png"', '"../img/profile/slothpink.png"', '"../img/profile/pugpink.png"', '"../img/profile/goatpink.png"', '"../img/profile/monkeypink.png"'];
         var random = Math.floor((Math.random() * 4) + 1);
 
         $('.imageDiv').children('p').append('<img src =' + imageArray[random] + '>');
 
+    });
+
+    $('#monkey').on('click', function() {
+        window.location = `/makeDeck.html?email=${myEmail}`
+    });
+    $('#play').on("click", "a", function() {
+        window.location = `/play.html?email=${myEmail}`
+    });
+    $('#study').on("click", "a", function() {
+        window.location = `/study.html?email=${myEmail}`
     });
 });
