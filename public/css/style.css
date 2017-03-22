@@ -186,11 +186,12 @@ wrap{
 	height: 3em;
 	font-size: .5em;
 	color: white;
-  background-color:#337ab7;
+  /*background-image: url('../img/star.png');*/
 	}
 
 .flag:focus{
   outline: 0;
+  background-image: url('../img/star.png');
 }
 
 /* entire container, keeps perspective */
