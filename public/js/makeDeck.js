@@ -4,7 +4,7 @@ console.log(myEmail);
 $(document).ready(function() {
     appendSubject()
     $('#showDeckClass').on('click', function() {
-        window.location = `/showdecks.html?email=${myEmail}`
+        window.location = `/showDecks.html?email=${myEmail}`
     });
     $('#showStudyClass').on('click', function() {
         window.location = `/study.html?email=${myEmail}`

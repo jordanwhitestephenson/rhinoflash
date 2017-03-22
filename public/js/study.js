@@ -5,7 +5,7 @@ console.log(deckID)
 $(document).ready(function() {
 
     $('#showDeckClass').on('click', function() {
-        window.location = `/showdecks.html?email=${myEmail}`
+        window.location = `/showDecks.html?email=${myEmail}`
     });
     $('#showStudyClass').on('click', function() {
         window.location = `/study.html?email=${myEmail}`

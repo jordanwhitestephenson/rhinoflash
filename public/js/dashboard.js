@@ -28,15 +28,16 @@ $(document).ready(function() {
         }).then(function(users) {
             console.log(users);
             $('.imageDiv *').remove();
-
-            $('.div2 p ').remove();
+            $('.badgeArea *').remove();
+            $('.div2  *').remove();
+            $('.userDecks *').remove();
 
 
             $('.div1 h3').text('Welcome : ' + users[0].name + ' !');
             $('.userDecks h3').text(users[0].name + " 's" + 'Decks : ');
-            $('.userDecks').append(`<h6><a href ="/showDecks.html?email=${myEmail}"> SHOW ALL DECKS </a> </h6>`);
+            $('.userDecks').append(`<h3><a href ="/showDecks.html?email=${myEmail}"> Show All Decks </a> </h3>`);
             $('.imageDiv').append('<img src =' + imageArray[users[0].userImage] + '>');
-            $('.div2 p').append(`<p> Your Email  : ${users[0].email} </p>`)
+            $('.div2').append(`<p> Your Email  : ${users[0].email} </p>`)
             $('.div2').append(`<p> Favorited Subject  : ${users[0].subject_name} </p>`);
 
             var unique = _.uniqBy(users, 'deck_name')
@@ -44,21 +45,21 @@ $(document).ready(function() {
                 return _.get(deck, 'deck_name')
             });
             unique.forEach(function(deck) {
-                $('.userDecks p').append(`<div class = "deckcontainer"><a href=${deck.deck_name}</a> ${deck.deck_name}  <button type="button"  class="delete-btn" data-id= ${deck.deck_id}><span i class= "material-icons">delete</i></span></button></div>`);
+                $('.userDecks').append(`<div class = "deckcontainer"><a href=${deck.deck_name}</a> ${deck.deck_name}  <button type="button"  class="delete-btn" data-id= ${deck.deck_id}><span i class= "material-icons">delete</i></span></button></div>`);
             });
 
 
 
             //  <--BADGES-->
             if (users[0].fiveDeckBadge >= 5) {
-                $('.badgeArea').append('<img src="../img/5badge.png">');
+                $('.badgeArea').append('<img src="../img/5badge.png" height="50px" width="50px">');
             }
             else if (users[0].perfectScore >= 1) {
-                $('.badgeArea').append('<img src="../img/perfectscore.png">');
+                $('.badgeArea').append('<img src="../img/perfectscore.png" height="50px" width="50px">');
             }
 
             else if (users[0].fiveFavorites <= 3) {
-                $('.badgeArea').append('<img src="../img/5commentsbadge.png">');
+                $('.badgeArea').append('<img src="../img/5commentsbadge.png" height="50px" width="50px">');
             }
             else {
               $('.badgeArea').append('<p>' + "NO BADGES" + '</p>');
