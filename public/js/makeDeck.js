@@ -19,20 +19,6 @@ $(document).ready(function() {
 });
 
 
-function appendSubject() {
-
-//     $.ajax({
-//         method: 'GET',
-//         url: 'https://flash-backend.herokuapp.com/subject',
-//         contentType: "application/json",
-//         data: JSON.stringify()
-//     }).then(function(subject) {
-//         for (var i = 0; i < subject.length; i++) {
-//             $('.subject')
-//                 .append('<li class="dropval" id="' + subject[i].name '"><a>' + subject[i].name + '</a></li>');
-//         }
-//     });
-// }
 
 
 /*global $*/
