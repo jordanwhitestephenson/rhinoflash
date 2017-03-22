@@ -101,4 +101,8 @@ $(document).ready(function() {
     $('#showAllDecks').on("click", "a", function() {
         window.location = `/showDecks.html?email=${myEmail}`
     });
+    $('#logout').on("click", "a", function() {
+        window.location =`https://rhinocards.herokuapp.com/logout`
+    });
+    
 });
