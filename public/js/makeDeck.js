@@ -1,3 +1,4 @@
+
 var myEmail = decodeURIComponent(window.location.search).split("=")[1];
 console.log(myEmail);
 
@@ -18,21 +19,6 @@ $(document).ready(function() {
 
 });
 
-
-function appendSubject() {
-
-//     $.ajax({
-//         method: 'GET',
-//         url: 'https://flash-backend.herokuapp.com/subject',
-//         contentType: "application/json",
-//         data: JSON.stringify()
-//     }).then(function(subject) {
-//         for (var i = 0; i < subject.length; i++) {
-//             $('.subject')
-//                 .append('<li class="dropval" id="' + subject[i].name '"><a>' + subject[i].name + '</a></li>');
-//         }
-//     });
-// }
 
 
 /*global $*/
@@ -55,18 +41,33 @@ function appendSubject() {
       $('.subjectSelection')
         .append(`<li class="dropval" id="${subject[i].name}"><a>${subject[i].name}</a></li>`);
     }
-  });
+  })
 }
 $(document).ready(function () {
-  appendSubject();
+  appendSubject()
 });
 
-$('.dropval').click(function() {
-    console.log('lll');
-    var id = $(this).attr('id');
-    console.log(id);
+// var selected = document.getElementById('dropdown1')
+// console.log(selected);
+
+
+$(document).on('click', '.dropval', function () {
+  var id = $(this).text();
+  cardPost['name'] = id;
+  console.log("cardPost", cardPost);
+  console.log(id)
 });
 
+$("#addCard").click(function () {
+  front
+  back
+  deck_id
+});
+
+// name
+// subject
+// ---drop down
+// email
 
 $("#addDeck").click(function () {
   $.ajax({
@@ -81,7 +82,6 @@ $("#addDeck").click(function () {
     })
     .catch((response) => {
       console.log('error');
-
     });
 });
 
@@ -91,12 +91,3 @@ $("#addDeck").click(function () {
 // Deck: {"subject":"History","email":"Jeff@gmail.com","front":"history9 front","back":"history9 back","name":"history101","id":1}
 
 // badge, subject, username, deck, favorite, flashcard
-
-
-$('#play').on("click", "a", function() {
-    window.location = `/play.html?email=${myEmail}`
-});
-$('#study').on("click", "a", function() {
-    window.location = `/study.html?email=${myEmail}`
-});
-}
