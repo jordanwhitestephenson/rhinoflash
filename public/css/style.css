@@ -305,3 +305,8 @@ wrap{
   border: 0;
   background-color: transparent;
 }
+.answerCheck {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: row;
+}
