@@ -167,7 +167,7 @@ ul {
 .login-form__inner-bottom-link {
   display: flex;
   flex-direction: row;
-  justify-content: space-between; }
+  justify-content: center; }
   .login-form__inner-bottom-link a:last-child {
     align-self: flex-end; }
 
