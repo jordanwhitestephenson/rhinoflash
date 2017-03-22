@@ -32,13 +32,25 @@ $(document).ready(function() {
           console.log(unique)
                   $('.col').append(`<div class="flip-container" id="flashcard" style="margin: 20px;"><div class="front"><div class="flipper"></div>
                     <span id="flashcard--content_en"><a href="${deck.deck_id}"></a>${deck.deck_name}</span>
-                    <button class="flag"><i class="fa fa-flag" aria-hidden="true"></i></button>
                   </div>
                   </div>
                   <div class = "deckButtons">
                   <a class="waves-effect waves-light btn-large" data-id= ${deck.deck_id} href="play.html?email=${myEmail}?deck_id=${deck.deck_id}">Play</a>
+                  <a class="waves-effect waves-light btn-large favorite" data-id= ${deck.deck_id} href="#">Favorite</a>
                   <a class="waves-effect waves-light btn-large" data-id= ${deck.deck_id} href="/study.html?email=${myEmail}?deck_id=${deck.deck_id}">Study</a>
                   </div></div>`)
         });
+        $(document).on('click', '.favorite', function(event) {
+            event.preventDefault();
+            console.log('FLAGGED!')
+            $(this).css({
+              'background-color' : 'yellow',
+              'width' : '30px',
+              'height' : '30px'
+            });
+
+        });
     })
+
+
 });
