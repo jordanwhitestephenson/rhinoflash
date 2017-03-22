@@ -95,4 +95,7 @@ $(document).ready(function() {
     $('#study').on("click", "a", function() {
         window.location = `/study.html?email=${myEmail}`
     });
+    $('#showAllDecks').on("click", "a", function() {
+        window.location = `/showDecks.html?email=${myEmail}`
+    });
 });

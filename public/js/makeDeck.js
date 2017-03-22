@@ -6,6 +6,15 @@ $(document).ready(function() {
     $('#showDeckClass').on('click', function() {
         window.location = `/showdecks.html?email=${myEmail}`
     });
+    $('#showStudyClass').on('click', function() {
+        window.location = `/study.html?email=${myEmail}`
+    });
+    $('#showPlayClass').on('click', function() {
+        window.location = `/play.html?email=${myEmail}`
+    });
+    $('#showDashboardClass').on('click', function() {
+        window.location = `/dashboard.html?email=${myEmail}`
+    });
 
 });
 

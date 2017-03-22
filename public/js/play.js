@@ -1,50 +1,66 @@
+var myEmail = decodeURIComponent(window.location.search).split("=")[1];
+console.log(myEmail);
+$(document).ready(function() {
 
+    $('#showDeckClass').on('click', function() {
+        window.location = `/showdecks.html?email=${myEmail}`
+    });
+    $('#showStudyClass').on('click', function() {
+        window.location = `/study.html?email=${myEmail}`
+    });
+    $('#showPlayClass').on('click', function() {
+        window.location = `/play.html?email=${myEmail}`
+    });
+    $('#showDashboardClass').on('click', function() {
+        window.location = `/dashboard.html?email=${myEmail}`
+    });
 
-$.getJSON("https://spreadsheets.google.com/feeds/list/1drpkpwOh-omRcTLbr1EycVLNLBpvY5AySulIYdk9MKk/od6/public/values?alt=json", function(data) {
-	vocabWords = data.feed.entry;
-	numVocabWords = vocabWords.length;
- });
-var flashcard = document.getElementById('flashcard');
-var refreshBtns = document.getElementsByClassName('refresh');
+    $.getJSON("https://spreadsheets.google.com/feeds/list/1drpkpwOh-omRcTLbr1EycVLNLBpvY5AySulIYdk9MKk/od6/public/values?alt=json", function(data) {
+        vocabWords = data.feed.entry;
+        numVocabWords = vocabWords.length;
+    });
+    var flashcard = document.getElementById('flashcard');
+    var refreshBtns = document.getElementsByClassName('refresh');
 
-flashcard.addEventListener('click', function() {
-	this.classList.toggle('flipped');
-}, false);
+    flashcard.addEventListener('click', function() {
+        this.classList.toggle('flipped');
+    }, false);
 
-// window.addEventListener('keydown', checkKeyPressed, false);
+    // window.addEventListener('keydown', checkKeyPressed, false);
 
-// function checkKeyPressed(e) {
-//     if (e.keyCode == "39") {
-//         this.classList.toggle('flipped');
-//     }
-// }
+    // function checkKeyPressed(e) {
+    //     if (e.keyCode == "39") {
+    //         this.classList.toggle('flipped');
+    //     }
+    // }
 
-// left and right - next and previous card
-// up and down - flip card
-// space or enter - star card
+    // left and right - next and previous card
+    // up and down - flip card
+    // space or enter - star card
 
-// left = 37
-// up = 38
-// right = 39
-// down = 40
-// spaceBar: 32
+    // left = 37
+    // up = 38
+    // right = 39
+    // down = 40
+    // spaceBar: 32
 
-for (i = 0; i < refreshBtns.length; i++) {
-	refreshBtns[i].addEventListener('click', function(e) {
-		e.stopPropagation();
-		e.preventDefault();
-		var randomNum = getRandomInt(0, numVocabWords);
-		newWord = vocabWords[randomNum];
-		var enContent = document.getElementById('flashcard--content_en');
-		var esContent = document.getElementById('flashcard--content_es');
-		enContent.textContent = newWord.gsx$en.$t;
-		esContent.textContent = newWord.gsx$es.$t;
-	}, false);
-}
+    for (i = 0; i < refreshBtns.length; i++) {
+        refreshBtns[i].addEventListener('click', function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            var randomNum = getRandomInt(0, numVocabWords);
+            newWord = vocabWords[randomNum];
+            var enContent = document.getElementById('flashcard--content_en');
+            var esContent = document.getElementById('flashcard--content_es');
+            enContent.textContent = newWord.gsx$en.$t;
+            esContent.textContent = newWord.gsx$es.$t;
+        }, false);
+    }
 
-function getRandomInt(min, max) {
-	return Math.floor(Math.random() * (max - min)) + min;
-}
+    function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
+    }
+})
 
 // ***PREV NEXT BUTTONS***
 
