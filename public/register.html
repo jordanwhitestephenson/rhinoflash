@@ -16,7 +16,7 @@
 <body>
     <nav class="light-blue lighten-1" role="navigation">
         <div class="nav-wrapper container"><a id="logo-container" href="index.html" class="brand-logo">Flash Rhino</a>
-
+        
           <ul class="right hide-on-med-and-down">
               <li><a href="login.html">Login</a></li>
           </ul>
@@ -33,39 +33,45 @@
         </div>
     </nav>
 
-    <!-- <-LOGIN FORM-->
+    <!-- <-REGISTER-->
     <div class="section no-pad-bot" id="index-banner">
         <div class="container">
 
-          <form class="login-form">
+          <form method="get" class="login-form" name="user-login">
               <div class="login-form__header">
-                <p>Flat User Login</p>
+                <p>Register</p>
               </div>
             <div class="login-form__content-bg">
-            <span class="login-form__notification">Please Login To Flash Rhino.</span>
+            <span class="login-form__notification">Please Register To Flash Rhino.</span>
+                <input type="text" class="login-form__field  login-form__field--name"        placeholder="name" required/>
 
-                <input type="text" class="login-form__field  login-form__field--name" name="login-form__name"         placeholder="username" required/>
+                <input type="text" class="login-form__field  login-form__field--name" placeholder="email" required/>
 
-                <input type="password" class="login-form__field  login-form__field--password" name="<login->            </login->form__password" placeholder="password" required/>
+                <input type="password" class="login-form__field  login-form__field--password" placeholder="username" required/>
 
+              <button type="submit" class="login-form__submit">Register</button>
 
-
-              <button type="submit" id = "loginButton" class="login-form__submit">Login</button>
               <span class="login-form__line"></span>
 
               <ul class="login-form__social-list">
-                <center>
-                <li class="login-form__social_item"><a href="https://rhinocards.herokuapp.com/login/facebook" class="login-form__social-link  login-form__social-link--fb">Facebook Login</a></li></center>
+                <center><li class="login-form__social_item"><a href="#" class="login-form__social-link  login-form__social-link--fb">Facebook Login</a></li></center>
               </ul>
               <div class="login-form__inner-bottom-link">
-                <a href="register.html">Create an account</a>
-                <a href="#">Forgot Passord?</a>
               </div>
               </div>
             </form>
+            <div class="logged-in"><strong>Successfully Registered!</strong></div>
+
         </div>
     </div>
 
+
+
+
+        <div class="section">
+
+        </div>
+    </div>
 
     <footer class="page-footer orange">
         <div class="container">
@@ -73,6 +79,8 @@
                 <div class="col l6 s12">
                     <h5 class="white-text">Company Bio</h5>
                     <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+
+
                 </div>
             </div>
         </div>
@@ -88,7 +96,6 @@
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="js/materialize.js"></script>
     <script src="js/init.js"></script>
-    <script src = "js/login.js"></script>
 
 </body>
 
