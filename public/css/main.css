@@ -13,6 +13,19 @@ position: fixed;
 bottom: 0px;
 }
 
+#welcomeBear{
+  margin-top: 100px;
+  position: fixed;
+  bottom: 0px;
+}
+
+.welcomeBearDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 100px;
+}
+
 body {
   display: -webkit-box;
   display: -moz-box;
@@ -37,7 +50,7 @@ a {
   text-decoration:none;
 }
 .bckg {
-  background-color:#383B42;
+  background-color: #a3477c;
   box-shadow:-4px 0px 10px rgba(14, 14, 14, 0.48) inset;
   width:200px;
   height:100%;
@@ -53,7 +66,7 @@ h1 {
     margin:0;
     font-size:20px;
     letter-spacing:2px;
-    background-color:#34363A;
+    background-color: #a3477c;
     border-bottom:1px solid rgba(101, 116, 134, 0.57);
 }
 h2 {

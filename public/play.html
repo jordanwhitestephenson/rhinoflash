@@ -10,74 +10,79 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Bubblegum+Sans" rel="stylesheet">
     <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
-      <!-- <link href="css/main.css" type="text/css" rel="stylesheet" media="screen,projection" /> -->
+
 </head>
 
 <body>
-  <nav class="light-blue lighten-1" role="navigation">
-      <div class="nav-wrapper container"><a id="logo-container" href="index.html" class="brand-logo">Flash Rhino</a>
+    <nav class="light-blue lighten-1" role="navigation">
+        <div class="nav-wrapper container"><a id="logo-container" href="index.html" class="brand-logo">Flash Rhino</a>
 
           <ul class="right hide-on-med-and-down">
-              <li><a href="dashboard.html">Dashboard</a></li>
-          </ul>
-          <ul class="right hide-on-med-and-down">
               <li><a href=".html">Logout</a></li>
+              <li><a href="dashboard.html">Dashboard</a></li>
+              <li><a href="/play.html">Play</a></li>
+              <li><a href="study.html">Study</a></li>
+              <li><a href="showdecks.html">Show Decks</a></li>
           </ul>
 
-          <ul id="nav-mobile" class="side-nav">
+            <ul id="nav-mobile" class="side-nav">
               <li><a href=".html">Logout</a></li>
-          </ul>
-          <ul id="nav-mobile" class="side-nav">
               <li><a href="dashboard.html">Dashboard</a></li>
-          </ul>
-          <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-      </div>
-  </nav>
+              <li><a href="play.html">Play</a></li>
+              <li><a href="study.html">Study</a></li>
+              <li><a href="showdecks.html">Show Decks</a></li>
+            </ul>
+            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+        </div>
+    </nav>
+    <center><h2 class ="decorated">
+    <span><img src = "../img/profile/hippopink.png" width="65%" height="65%"class="animalBorder fancy"></span></h2></center>
     <div class="section no-pad-bot" id="index-banner">
         <div class="container">
             <br><br>
             <div id="wrap">
-
                 <div class="container">
-                  <div class="row" id="midrow">
-                    <div class="flip-container" id="flashcard">
-                      <!-- <div class="flipper"> -->
-                        <div class="front">
-                          <span id="flashcard--content_en">almonds</span>
-                          <button class="flag"><i class="fa fa-flag" aria-hidden="true"></i></button>
-                        </div>
 
-                      </div>
+
+                    <div class="row" id="midrow">
+                        <div class="flip-container" id="flashcard">
+                            <!-- <div class="flipper"> -->
+                            <div class="front">
+                                <span id="flashcard--content_en">almonds</span>
+                                <button class="flag"><i class="fa fa-flag" aria-hidden="true"></i></button>
+                            </div>
+
+                        </div>
                     </div>
 
                     <div class="button-container">
-                      <button class="refresh"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
-            <button class="refresh"><i class="fa fa-random" aria-hidden="true"></i></button>
-            <!--           <button class="refresh"><i class="fa fa-star-o" aria-hidden="true"></i></button> -->
-                      <button class="refresh"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
+                        <button class="refresh"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+                        <button class="refresh"><i class="fa fa-random" aria-hidden="true"></i></button>
+                        <button class="refresh"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
                     </div>
-                  </div>
                 </div>
-              </div>
-
             </div>
+        </div>
+
+    </div>
 
 
-            <div class="row">
-                <div class="col s12" style="margin-left: 20px;">
-                  Please write you answer Here:
-                  <div class="input-field inline">
-                    <input id="answer" type="text" class="validate">
-                    <label for="answer" data-error="wrong" data-success="right"></label>
-                  </div>
-                </div>
-              </div>
-
-              <button class="btn waves-effect waves-light" type="submit"   name="action" style="margin-left: 20px;">Submit
+    <div class="row">
+        <div class="col s12 answer" style="margin-left: 20px;">
+            Please write you answer Here:
+            <div class="input-field inline">
+                <input id="answer" type="text" class="validate">
+                <label for="answer" data-error="wrong" data-success="right"></label>
+            </div>
+        </div>
+    </div>
+    <center>
+        <button class="btn waves-effect waves-light" type="submit" name="action" style="margin-left: 20px;">Submit
                   <i class="material-icons right">send</i>
               </button>
-            <br><br>
-        </div>
+    </center>
+    <br><br>
+    </div>
     </div>
 
     <footer class="page-footer orange">
@@ -87,25 +92,6 @@
                     <h5 class="white-text">Company Bio</h5>
                     <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
 
-
-                </div>
-                <div class="col l3 s12">
-                    <h5 class="white-text">Settings</h5>
-                    <ul>
-                        <li><a class="white-text" href="#!">Link 1</a></li>
-                        <li><a class="white-text" href="#!">Link 2</a></li>
-                        <li><a class="white-text" href="#!">Link 3</a></li>
-                        <li><a class="white-text" href="#!">Link 4</a></li>
-                    </ul>
-                </div>
-                <div class="col l3 s12">
-                    <h5 class="white-text">Connect</h5>
-                    <ul>
-                        <li><a class="white-text" href="#!">Link 1</a></li>
-                        <li><a class="white-text" href="#!">Link 2</a></li>
-                        <li><a class="white-text" href="#!">Link 3</a></li>
-                        <li><a class="white-text" href="#!">Link 4</a></li>
-                    </ul>
                 </div>
             </div>
         </div>
