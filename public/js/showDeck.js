@@ -35,29 +35,66 @@ $(document).ready(function() {
                   </div>
                   </div>
                   <div class = "deckButtons">
-                  <a class="waves-effect waves-light btn-large" data-id= ${deck.deck_id} href="play.html?email=${myEmail}?deck_id=${deck.deck_id}">Play</a>
-                  <a class="waves-effect waves-light btn-large favorite" data-id= ${deck.deck_id} href="#">Favorite</a>
-                  <a class="waves-effect waves-light btn-large" data-id= ${deck.deck_id} href="/study.html?email=${myEmail}?deck_id=${deck.deck_id}">Study</a>
+                  <a class="waves-effect waves-light btn-large" id= ${deck.deck_id} href="play.html?email=${myEmail}?deck_id=${deck.deck_id}">Play</a>` +
+
+                  `<a class="btn-large unFavorite" id= ${deck.deck_id} href="">Favorite</a>` +
+
+                  `<a class="waves-effect waves-light btn-large" id= ${deck.deck_id} href="/study.html?email=${myEmail}?deck_id=${deck.deck_id}">Study</a>
                   </div></div>`)
         });
-        $(document).on('click', '.favorite', function(event) {
+
+        $('.unFavorite').on('click', function(event) {
             event.preventDefault();
-            console.log('FLAGGED!')
-            $(this).css({
-                'background-color': 'yellow',
-                'width': '50px',
-                'height': '40px',
-                'font-size': '8px',
-                'color': '#000',
-                'padding-right': '80px',
-                'font-weight': '600',
-                'padding-bottom': '50px'
-            }).text('Favorited!');
+            // var favoriteDeck = $(this).attr('id');
+
+              $(this).toggleClass("favorite")
+
+
+            //     'background-color': 'yellow',
+            //     'width': '50px',
+            //     'height': '40px',
+            //     'font-size': '8px',
+            //     'color': '#000',
+            //     'padding-right': '80px',
+            //     'font-weight': '600',
+            //     'padding-bottom': '50px'
+            // }).text('Favorited!')
+
+            var favoriteDecks = {
+                email: `${myEmail}`,
+                id: `${favoriteDeck}`
+            };
+        //     $.ajax({
+        //             method: "POST",
+        //             url: "https://rhinocards.herokuapp.com/favorite",
+        //             data: JSON.stringify(favoriteDecks),
+        //             contentType: "application/json"
+        //         })
+        //         .then(response => {
+        //             function changeClass() {
+        //                 $('.waves-effect.waves-light.btn-large.favorite').removeClass('favorite');
+        //                 $(this).addClass('newFavorite')
+        //                 event.preventDefault();
+        //             }
+        //             $('.favorite').on('click', changeClass);
+        //         });
+        //         if ($('.waves-effect.waves-light.btn-large').hasClass('.newFavorite')){
+        //           ('.newFavorite').text('YA!')
+        //           var unfavoriteDeck = $(this).attr('id');
+        //           var unfavoriteDecks = {
+        //               email: `${myEmail}`,
+        //               id: `${unfavoriteDeck}`
+        //           };
+        //           $.ajax({
+        //                   method: "DELETE",
+        //                   url: "https://rhinocards.herokuapp.com/favorite",
+        //                   data: JSON.stringify(unfavoriteDecks),
+        //                   contentType: "application/json"
+        //               }).then(response => {
+        //                 console.log('unfavorited', response)
+        //               })
+        //
+        //         }
         });
-        // if ($('.favorite').has(":contains('Favorited')")){
-        //     console.log('ya mast')
-        // }
-    })
-
-
+    });
 });
