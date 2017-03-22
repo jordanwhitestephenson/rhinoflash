@@ -19,33 +19,39 @@
                 window.location.hash = '';
         }
     </script>
-
 </head>
 
 <body>
     <span class="bckg"></span>
     <header>
-
         <h1>Dashboard</h1>
         <nav>
+          <center>
             <ul>
                 <li id="member">
                     <div>
-                        <a href="javascript:void(0);" id="useroverviewPage" data-title="Overview" data-body="Welcome Flash Rhino Member" data-heading="" data-about="User Info" ; data-userbio=""
-                            data-userstats data-statoverview="Stats Overview" data-userbadge="img/profile/pugpink.png">
+                        <a href="javascript:void(0);" id="useroverviewPage" data-title="Overview" data-body="Welcome Flash Rhino Member" data-heading="" data-about="User Info" ; data-userbio="" data-userstats data-statoverview="Stats Overview" data-userbadge="img/profile/pugpink.png">
                             User Overview</a>
                 </li>
                 </div>
 
-                <li id = "play">
+                <li id="play">
                     <a href="javascript:void(0);" data-title="Create Cards and Decks" data-body="" data-heading="Create Cards" data-about="This is where You'd Create Cards" data-makecards="Makin CARDS BRO">Play Cards and Decks</a>
                 </li>
                 <li>
-                  <div id = "study">
-                    <a href="javascript:void(0);" data-title="Challenge Friends" data-body="Challenge" data-heading="ChallengeHeading" data-about="This is where You'd hallenge">Study</a></div>
-                    <img src="../img/makeflashcards.png" id="monkey">
+                    <div id="study">
+                        <a href="javascript:void(0);" data-title="Study" data-body="Study" data-heading="StudyHeading" data-about="This is where You'd hallenge">Study</a></div>
+                        <div class = "monkeyContainer">
+                    <img src="../img/makeflashcards.png" id="monkey" ></div>
                 </li>
+                <!-- <br></br>
+                <br>
+                <li>
+                    <div id="logout">
+                        <a href="javascript:void(0);" data-title="Study" data-body="Logout" data-heading="Logout" data-about="This is where You'd hallenge">Logout</a></div>
+                </li> -->
             </ul>
+
         </nav>
     </header>
     <main>
@@ -53,8 +59,9 @@
             <div class="title col s12 m2 z-depth-3">
                 <h5></h5>
             </div>
-            <div class = "welcomeBearDiv container" id = "welcomeBear">
-            <center><img src="img/profile/welcomebear.png"><center>
+            <div class="welcomeBearDiv container" id="welcomeBear">
+                <center><img src="img/profile/welcomebear.png">
+                    <center>
             </div>
 
             <article class="larg">

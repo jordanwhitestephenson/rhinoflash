@@ -12,6 +12,11 @@ margin-top: 100px;
 position: fixed;
 bottom: 0px;
 }
+.monkeyContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items:flex-start;
+}
 
 #welcomeBear{
   margin-top: 100px;

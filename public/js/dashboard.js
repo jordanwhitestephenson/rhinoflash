@@ -33,13 +33,13 @@ $(document).ready(function() {
             $('.userDecks').append(`<h6><a href ="/showDecks.html?email=${myEmail}"> SHOW ALL DECKS </a> </h6>`);
             $('.imageDiv').children('p').append('<img src =' + imageArray[users[0].userImage] + '>');
             $('.div2 p').append(`<p> Your Email  : ${users[0].email} </p>`)
-            $('.div2').append(`<p> Favorited Subject  : ${users[0].subject_name} </p>`)
+            $('.div2').append(`<p> Favorited Subject  : ${users[0].subject_name} </p>`);
 
             var unique = _.uniqBy(users, 'deck_name')
             var pluck = unique.map(function(deck) {
                 return _.get(deck, 'deck_name')
             });
-console.log(unique)
+            console.log(unique)
             unique.forEach(function(deck) {
                 console.log('this is forEach', deck);
 

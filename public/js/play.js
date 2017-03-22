@@ -1,3 +1,5 @@
+
+
 $.getJSON("https://spreadsheets.google.com/feeds/list/1drpkpwOh-omRcTLbr1EycVLNLBpvY5AySulIYdk9MKk/od6/public/values?alt=json", function(data) {
 	vocabWords = data.feed.entry;
 	numVocabWords = vocabWords.length;

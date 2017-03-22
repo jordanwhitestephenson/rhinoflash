@@ -39,6 +39,12 @@ body {
   justify-content: center;
   align-items: center;
 }
+.deckButtons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+}
 
 .animalBorder {
     border-radius: 150px;
@@ -284,7 +290,7 @@ wrap{
   /* for firefox 31 */
 	-webkit-transform: rotateY(0deg);
 	-ms-transform: rotateY(0deg);
-	background-color: rgba(38, 166, 154, 0.79);
+	background-color: #a3477c;
 }
 
 /* back, initially hidden pane */
@@ -294,7 +300,7 @@ wrap{
 	-o-transform: rotateY(-180deg);
 	-ms-transform: rotateY(-180deg);
 	transform: rotateY(-180deg);
-	background-color: #2BBE83;
+	background-color: #31b5a9;
 }
 
 .container .refresh {
