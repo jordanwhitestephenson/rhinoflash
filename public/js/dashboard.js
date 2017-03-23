@@ -23,7 +23,6 @@ $(document).ready(function() {
 
     // <--clicking on user overview-->
     $('#member').on("click", "a", function() {
-        $('#welcomeBear').remove()
         $.ajax({
             method: 'GET',
             url: `https://rhinocards.herokuapp.com/username/${myEmail}`,
@@ -48,8 +47,16 @@ $(document).ready(function() {
 
             $('.userDecks h3').text(users[0].name + " 's" + 'Decks : ');
             $('#dashboardStats').append(`<h3><a href ="/showDecks.html?email=${myEmail}"> Show All Decks </a> </h3>`);
-            $('#img-wrapper').append('<img src =' + imageArray[users[0].userImage] + '>');
+
+            if (users[0].userImage === null){
+              $('#img-wrapper').append('<img src ="../img/random/tazpink.png">');
+            } else {
+              $('#img-wrapper').append('<img src =' + imageArray[users[0].userImage] + '>');
+            }
             $('#dashboardEmail').append(`<p> ${users[0].email} </p>`)
+
+
+
             $('#favoritedSubject').append(`<p> ${users[0].subject_name} </p>`);
             $('#userPosts').append(`<p>  ${users.length} </p>`)
             $('#favoritedDecks').append(`<p> ${users.length + 1} </p>`)
@@ -59,7 +66,12 @@ $(document).ready(function() {
                 return _.get(deck, 'deck_name')
             });
             unique.forEach(function(deck) {
+              if (`${deck.deck_name}` === 'null'){
+                $('.userDecks').append(`<section class = "noDeck"><div class = "deckcontainer"><h2>NO DECKS</h2></div></section>`);
+              }
+              else{
                 $('.userDecks').append(`<div class = "deckcontainer"><ul><li><a href=${deck.deck_name}</a> ${deck.deck_name} <data-id= ${deck.deck_id}><span i class= "tiny material-icons">delete</i></span></li></ul></div>`);
+              }
             });
 
 
@@ -67,13 +79,13 @@ $(document).ready(function() {
             //  <--BADGES-->
             $('.userDecks').append(`<div class = "dashboardEmail"><center><h2>Badge Area</h2></center></div>`)
             if (users[0].fiveDeckBadge >= 5) {
-                $('.badgeArea').append('<img src="../img/badges/5badge.png" height="50px" width="50px">');
+                $('.badgeArea').append('<img src="../img/badges/5deckbadge.png">' + '<img src="../img/badges/loginbadge.png">' + '<img src = "../img/badges/adultingbadge.png" height = "80%" width= "80%">' );
             } else if (users[0].perfectScore >= 1) {
-                $('.badgeArea').append('<img src="../img/badges/perfectscore.png" height="50px" width="50px">');
+                $('.badgeArea').append('<img src="../img/badges/perfectscorebadge.png">');
             } else if (users[0].fiveFavorites <= 3) {
-                $('.badgeArea').append('<img src="../img/badges/5commentsbadge.png" height="50px" width="50px">');
+                $('.badgeArea').append('<img src="../img/badges/5likebadge.png">');
             } else {
-                $('.badgeArea').append('<img src="../img/badges/bearminbadge.png" height="200px" width="200px">' + '<br>' + '<img src="../img/badges/unicornbadge.png" height="200px" width="200px">');
+                $('.badgeArea').append('<img src="../img/badges/loginbadge.png">' + '<img src="../img/badges/nocommentbadge.png">');
             }
 
         });
