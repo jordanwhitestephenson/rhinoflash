@@ -28,10 +28,12 @@ $(document).ready(function() {
             $('.badgeArea').append('<p>' + "Why Don't Register and Earn Some Badges?" + '</p>');
         }
         $('.title h5').append('<h5>' + 'Welcome ' + users[0].name + '!' + '</h5>');
+        appendThings()
     });
 
     // <--clicking on user overview-->
-    $('#member').on("click", "a", function() {
+    function appendThings () {
+      console.log('hello');
         $.ajax({
             method: 'GET',
             url: `https://rhinocards.herokuapp.com/username/${myEmail}`,
@@ -124,7 +126,7 @@ $(document).ready(function() {
 
 
 
-    });
+    };
 
     $('#monkey').on('click', function() {
         window.location = `/makeDeck.html?email=${myEmail}`
