@@ -33,7 +33,17 @@
   outline: 1px;
   outline-offset: 15px;
 }
-#monkey {
+.badgeTitle{
+  color: ;
+}
+
+.noDeck {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+ #monkey {
 margin-top: 100px;
 position: fixed;
 bottom: 0px;
