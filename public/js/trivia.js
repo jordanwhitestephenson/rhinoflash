@@ -1,8 +1,25 @@
-/* global $ document location */
+var myEmail = decodeURIComponent(window.location.search).split("=")[1];
+console.log(myEmail);
+var deckID = decodeURIComponent(window.location.search).split("=")[2];
+console.log(deckID)
+$(document).ready(function() {
 
+  $('.showDeckClass').on('click', function() {
+      window.location = `/showDecks.html?email=${myEmail}`
+  });
+  $('.showStudyClass').on('click', function() {
+      window.location = `/study.html?email=${myEmail}`
+  });
+  $('.showPlayClass').on('click', function() {
+      window.location = `/play.html?email=${myEmail}`
+  });
+  $('.showDashboardClass').on('click', function() {
+      window.location = `/dashboard.html?email=${myEmail}`
+  });
+  $('.makeDeckClass').on('click', function() {
+      window.location = `/makeDeck.html?email=${myEmail}`
+  });
 
-// console.log(theQuestions, theCorrectAnswer);
-//
 const anotherButton =`
 <button class="btn waves-effect waves-light addCard" type="button" name="action" id="addCard-1">ANOTHER!
   <i class="material-icons left">replay</i>
