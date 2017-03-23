@@ -55,16 +55,23 @@ $(document).ready(function() {
             $('.badgeArea *').remove();
             $('.div2  *').remove();
             $('.userDecks *').remove();
-
-
             $('.userDecks h3').text(users[0].name + " 's" + 'Decks : ');
             $('#dashboardStats').append(`<h3><a href ="/showDecks.html?email=${myEmail}"> Show All Decks </a> </h3>`);
+
+            if (users[0].subject_name === null){
+              $('#img-wrapper').append('<img src ="../img/random/tazpink.png">');
+            } else {
+              $('#img-wrapper').append('<img src =' + imageArray[users[0].userImage] + '>');
+            }
+
 
             if (users[0].userImage === null){
               $('#img-wrapper').append('<img src ="../img/random/tazpink.png">');
             } else {
               $('#img-wrapper').append('<img src =' + imageArray[users[0].userImage] + '>');
             }
+
+
             $('#dashboardEmail').append(`<p> ${users[0].email} </p>`)
             $('#favoritedSubject').append(`<p> ${users[0].subject_name} </p>`);
             $('#userPosts').append(`<p>  ${users.length} </p>`)
