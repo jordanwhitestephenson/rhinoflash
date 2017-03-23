@@ -59,7 +59,7 @@ $(function() {
           console.log(error);
         })
     }
-
+    window.location.href = 'http://flashrhino.com/dashboard.html?email=' + myEmail;
   })
 
   // $("form").on("submit", function(event) {
