@@ -1,5 +1,14 @@
 $.ajaxSetup({xhrFields: { withCredentials: true } });
 var imageArray = ['"../img/random/blackcugpink.png"', '"../img/random/slothpink.png"', '"../img/random/giraffepink.png"', '"../img/random/kangaroo.png"', '"../img/random/goatpink.png"', '"../img/random/monkeypink.png"', '"../img/random/tazpink.png"'];
+$.get('https://rhinocards.herokuapp.com/')
+  .then(function(req, res) {
+    if (req.user === undefined) {
+      window.location.href = 'https://flashrhino.com';
+    }
+  })
+  .catch(function(error) {
+    console.log(error);
+  })
 
 $(document).ready(function() {
     var myEmail = decodeURIComponent(window.location.search).split("=")[1];
