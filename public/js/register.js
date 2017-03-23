@@ -1,14 +1,14 @@
 $.ajaxSetup({xhrFields: { withCredentials: true } });
-$.get('https://rhinocards.herokuapp.com/')
-  .then(function(req, res) {
-    if (req.user === undefined) {
+$.get('https://rhinocards.herokuapp.com/isLoggedIn')
+  .then(function(isLoggedIn) {
+    if (!isLoggedIn) {
       window.location.href = 'https://flashrhino.com';
     }
   })
   .catch(function(error) {
     console.log(error);
   })
-  
+
 $(function() {
   $('.register-button').on('click', function(event) {
     event.preventDefault();

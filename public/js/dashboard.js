@@ -1,8 +1,7 @@
 $.ajaxSetup({xhrFields: { withCredentials: true } });
-var imageArray = ['"../img/random/blackcugpink.png"', '"../img/random/slothpink.png"', '"../img/random/giraffepink.png"', '"../img/random/kangaroo.png"', '"../img/random/goatpink.png"', '"../img/random/monkeypink.png"', '"../img/random/tazpink.png"'];
-$.get('https://rhinocards.herokuapp.com/')
-  .then(function(req, res) {
-    if (req.user === undefined) {
+$.get('https://rhinocards.herokuapp.com/isLoggedIn')
+  .then(function(isLoggedIn) {
+    if (!isLoggedIn) {
       window.location.href = 'https://flashrhino.com';
     }
   })

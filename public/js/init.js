@@ -1,7 +1,7 @@
 $.ajaxSetup({xhrFields: { withCredentials: true } });
-$.get('https://rhinocards.herokuapp.com/')
-  .then(function(req, res) {
-    if (req.user === undefined) {
+$.get('https://rhinocards.herokuapp.com/isLoggedIn')
+  .then(function(isLoggedIn) {
+    if (!isLoggedIn) {
       window.location.href = 'https://flashrhino.com';
     }
   })
