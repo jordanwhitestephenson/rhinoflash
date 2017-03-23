@@ -14,6 +14,10 @@ $(document).ready(function() {
   $('.showDashboardClass').on('click', function() {
       window.location = `/dashboard.html?email=${myEmail}`
   });
+  $('.makeDeckClass').on('click', function() {
+      window.location = `/makeDeck.html?email=${myEmail}`
+  });
+
 
 
 
@@ -26,6 +30,7 @@ $(document).ready(function() {
         var unique = _.uniqBy(user, 'deck_name');
         var pluck = unique.map(function(deck) {
             return _.get(deck, 'deck_name');
+            console.log(unique)
         });
         unique.forEach(function(deck) {
             $('.col').append(`<div class="flip-container" id="flashcard" style="margin: 20px;"><div class="front"><div class="flipper"></div>
