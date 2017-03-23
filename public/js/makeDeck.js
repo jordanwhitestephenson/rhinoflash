@@ -46,11 +46,11 @@ $(function() {
         console.log(error);
       })
 
-    var subject = deckObject.subject;
+    var deckName = deckObject.name;
     for (let i = 0; i < cardCount; i++) {
       var cardFront = $('#Question-' + (i + 1)).val();
       var cardBack = $('#Answer-' + (i + 1)).val();
-      var cardObject = {front: cardFront, back: cardBack, name: subject};
+      var cardObject = {front: cardFront, back: cardBack, name: deckName};
       $.post('https://rhinocards.herokuapp.com/flashcard', cardObject)
         .then(function(data, status) {
           console.log(data);
@@ -59,7 +59,7 @@ $(function() {
           console.log(error);
         })
     }
-    window.location.href = 'http://flashrhino.com/dashboard.html?email=' + myEmail;
+    // window.location.href = 'http://flashrhino.com/dashboard.html?email=' + myEmail;
   })
 
   // $("form").on("submit", function(event) {
