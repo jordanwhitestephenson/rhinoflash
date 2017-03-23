@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+IconsAcme|Permanent+Marker|Bubblegum+Sans" rel="stylesheet">
     <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="css/input.css" type="text/css" rel="stylesheet" media="screen,projection">
     <link href="css/main.css" type="text/css" rel="stylesheet" media="screen,projection" />
 
     <script type="text/javascript">
@@ -30,7 +31,7 @@
                 <ul>
                     <li id="member">
                         <div>
-                            <a href="javascript:void(0);" id="useroverviewPage" data-title="Overview" data-body="Welcome Flash Rhino Member" data-heading="" data-about="User Info" ; data-userbio="" data-userstats data-statoverview="Stats Overview" data-userbadge="img/profile/pugpink.png">
+                            <a href="javascript:void(0);" id="useroverviewPage" data-title="Overview" data-body="" data-heading="" data-about="User Info" ; data-userbio="" data-userstats data-statoverview="" data-userbadge="img/profile/pugpink.png">
                             User Overview</a>
                     </li>
                     </div>
@@ -54,9 +55,9 @@
                     </li>
                     <br>
                     <li>
-                      <div id="logout">
-                          <a href="javascript:void(0);" data-title="logout" data-body="showDeck" data-heading="logout" data-about="Showing all of the Decks">Logout</a></div>
-                      </div>
+                        <div id="logout">
+                            <a href="javascript:void(0);" data-title="logout" data-body="showDeck" data-heading="logout" data-about="Showing all of the Decks">Logout</a></div>
+                        </div>
                     </li>
                 </ul>
         </nav>
@@ -66,45 +67,63 @@
             <div class="title col s12 m2 z-depth-3">
                 <h5></h5>
             </div>
-            <!-- <div class="welcomeBearDiv container" id="welcomeBear">
-                <center><img src="img/profile/welcomebear.png" width="80%" height="80%">
-                    <center>
-            </div> -->
-
             <article class="larg">
                 <center>
+                    <div class="profileImage">
+                        <p></p>
+                        <center>
+                            <div id='card'>
+                                <div id="main">
+                                    <div id="img-wrapper">
+                                        <img src="">
+                                    </div>
+                                    <h1></h1>
+                                    <h2 id="dashboardEmail"></h2>
+                                </div>
+                                <div class="profile-stats">
+                                    <p><span id="userPosts"></span> Posts</p>
+                                    <p><span id="favoritedDecks"></span> Decks</p>
+                                    <p><span id="favoritedSubject"></span> Favorite Subject</p>
+                                </div>
+                            </div>
+                            <div id='card'>
+                                <div id="main">
+                                    <div id="img-wrapper">
+                                        <img src="">
+                                    </div>
+                                    <h1></h1>
+                                    <h2 id="dashboardStats"></h2>
+                                </div>
+                            </div>
+                    </div>
                     <div class="imageDiv">
                         <p></p>
                         <center>
                             <h2></h2>
                         </center>
                     </div>
-                </center>
+                    </center>
 
-                <div class="div1">
-                    <h3></h3>
-                    <p></p>
-                </div>
-                <!-- <div class = "divX">
-                  <h3></h3>
-                  <p></p>
-                </div> -->
-                <div class="div2">
-                    <h3></h3>
-                    <p></p>
-                </div>
-                <div class="div3">
-                    <h3></h3>
-                    <p></p>
-                    <h2></h2>
-                </div>
-                <section class="badgeArea"></section>
-                <div class="userDecks">
-                    <h3></h3>
-                    <p></p>
-                </div>
+                    <div class="div1">
+                        <h3></h3>
+                        <p></p>
+                    </div>
+                    <div class="div2">
+                        <h3></h3>
+                        <p></p>
+                    </div>
+                    <div class="div3">
+                        <h3></h3>
+                        <p></p>
+                        <h2></h2>
+                    </div>
+
+                    <div class="userDecks">
+                        <h3></h3>
+                        <p></p>
+                    </div>
+                    <section class="badgeArea"></section>
             </article>
-
     </main>
     </div>
 </body>

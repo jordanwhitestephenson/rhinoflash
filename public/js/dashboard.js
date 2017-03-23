@@ -15,11 +15,11 @@ $(document).ready(function() {
     }).then(function(users) {
         console.log(users)
         if (users.length === 0) {
-            console.log('YA!!')
             $('.title').append('<center><p>' + 'We\'re Sorry, You\'re Not a Rhino Flash Member Yet!' + '<br>' + 'Please Register Your Account' + '</center></p>')
+            $('.badgeArea').append('<p>' + "Why Don't Register and Earn Some Badges?" + '</p>');
         }
-        $('.title h5').append('<h5>' + 'Hello Rhino Flash Member : ' + users[0].name + '</h5>')
-    })
+        $('.title h5').append('<h5>' + 'Welcome ' + users[0].name + '!' + '</h5>');
+    });
 
     // <--clicking on user overview-->
     $('#member').on("click", "a", function() {
@@ -37,7 +37,7 @@ $(document).ready(function() {
                 $('.div1 h3').append('<center><p>' + 'We\'re Sorry, You\'re Not a Rhino Flash Member Yet!' + '<br>' + 'Please Register Your Account' + '</center></p>')
                 $('.imageDiv').remove()
                 $('.div3 h3').remove()
-                $('.div2').remove() 
+                $('.div2').remove()
             }
 
             $('.imageDiv *').remove();
@@ -45,32 +45,35 @@ $(document).ready(function() {
             $('.div2  *').remove();
             $('.userDecks *').remove();
 
-            $('.div1 h3').text('Welcome : ' + users[0].name + ' !');
+
             $('.userDecks h3').text(users[0].name + " 's" + 'Decks : ');
-            $('.userDecks').append(`<h3><a href ="/showDecks.html?email=${myEmail}"> Show All Decks </a> </h3>`);
-            $('.imageDiv').append('<img src =' + imageArray[users[0].userImage] + '>');
-            $('.div2').append(`<p> Your Email  : ${users[0].email} </p>`)
-            $('.div2').append(`<p> Favorited Subject  : ${users[0].subject_name} </p>`);
+            $('#dashboardStats').append(`<h3><a href ="/showDecks.html?email=${myEmail}"> Show All Decks </a> </h3>`);
+            $('#img-wrapper').append('<img src =' + imageArray[users[0].userImage] + '>');
+            $('#dashboardEmail').append(`<p> ${users[0].email} </p>`)
+            $('#favoritedSubject').append(`<p> ${users[0].subject_name} </p>`);
+            $('#userPosts').append(`<p>  ${users.length} </p>`)
+            $('#favoritedDecks').append(`<p> ${users.length + 1} </p>`)
 
             var unique = _.uniqBy(users, 'deck_name')
             var pluck = unique.map(function(deck) {
                 return _.get(deck, 'deck_name')
             });
             unique.forEach(function(deck) {
-                $('.userDecks').append(`<div class = "deckcontainer"><a href=${deck.deck_name}</a> ${deck.deck_name}  <button type="button"  class="delete-btn" data-id= ${deck.deck_id}><span i class= "material-icons">delete</i></span></button></div>`);
+                $('.userDecks').append(`<div class = "deckcontainer"><ul><li><a href=${deck.deck_name}</a> ${deck.deck_name} <data-id= ${deck.deck_id}><span i class= "tiny material-icons">delete</i></span></li></ul></div>`);
             });
 
 
 
             //  <--BADGES-->
+            $('.userDecks').append(`<div class = "dashboardEmail"><center><h2>Badge Area</h2></center></div>`)
             if (users[0].fiveDeckBadge >= 5) {
-                $('.badgeArea').append('<img src="../img/5badge.png" height="50px" width="50px">');
+                $('.badgeArea').append('<img src="../img/badges/5badge.png" height="50px" width="50px">');
             } else if (users[0].perfectScore >= 1) {
-                $('.badgeArea').append('<img src="../img/perfectscore.png" height="50px" width="50px">');
+                $('.badgeArea').append('<img src="../img/badges/perfectscore.png" height="50px" width="50px">');
             } else if (users[0].fiveFavorites <= 3) {
-                $('.badgeArea').append('<img src="../img/5commentsbadge.png" height="50px" width="50px">');
+                $('.badgeArea').append('<img src="../img/badges/5commentsbadge.png" height="50px" width="50px">');
             } else {
-                $('.badgeArea').append('<p>' + "NO BADGES" + '</p>');
+                $('.badgeArea').append('<img src="../img/badges/bearminbadge.png" height="200px" width="200px">' + '<br>' + '<img src="../img/badges/unicornbadge.png" height="200px" width="200px">');
             }
 
         });
