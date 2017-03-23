@@ -48,12 +48,9 @@
         <form class="col s12">
 
             <div class="row">
-                <label>Chose your Subject</label>
+                <label>Choose your Subject</label>
                 <select id="Subject" class="browser-default subjectSelection">
-            <option value="" disabled selected>Choose your option</option>
-            <option value="1">Option 1</option>
-            <option value="2">Option 2</option>
-            <option value="3">Option 3</option>
+            <option value="" disabled selected>Choose your Subject</option>
           </select>
             </div>
 
@@ -64,24 +61,21 @@
                     <label>Name of Deck</label>
                 </div>
             </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="Question" type="text" class="validate">
+            <div class="row card-section">
+                <div class="input-field col s6">
+                    <input id="Question-1" type="text" class="validate">
                     <label>Question</label>
                 </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="Answer" type="text" class="validate">
+                <div class="input-field col s6">
+                    <input id="Answer-1" type="text" class="validate">
                     <label>Answer</label>
                 </div>
             </div>
-
-            <button class="btn waves-effect waves-light" type="submit" name="action" id="addCard">Add Card
+            <button class="btn waves-effect waves-light addCard" type="button" name="action" id="addCard-1">Add Card
        <i class="material-icons right">send</i>
-     </button>
+     </button><br><br>
 
-            <button class="btn waves-effect waves-light" type="submit" name="action" id="addDeck">Add Deck
+            <button class="btn waves-effect waves-light submit-deck" type="button" name="action" id="addDeck">Submit Deck
     <i class="material-icons right">send</i>
     </button>
 
