@@ -55,9 +55,6 @@ $(document).ready(function() {
               $('#img-wrapper').append('<img src =' + imageArray[users[0].userImage] + '>');
             }
             $('#dashboardEmail').append(`<p> ${users[0].email} </p>`)
-
-
-
             $('#favoritedSubject').append(`<p> ${users[0].subject_name} </p>`);
             $('#userPosts').append(`<p>  ${users.length} </p>`)
             $('#favoritedDecks').append(`<p> ${users.length + 1} </p>`)
@@ -75,8 +72,6 @@ $(document).ready(function() {
               }
             });
 
-
-
             //  <--BADGES-->
             $('.userDecks').append(`<div class = "dashboardEmail"><center><h2>Badge Area</h2></center></div>`)
             if (users[0].fiveDeckBadge >= 5) {
@@ -89,6 +84,14 @@ $(document).ready(function() {
                 $('.badgeArea').append('<img src="../img/badges/loginbadge.png">' + '<img src="../img/badges/nocommentbadge.png">');
             }
 
+        });
+        $.ajax({
+            method: 'GET',
+            url: `https://rhinocards.herokuapp.com/favorite`,
+            contentType: "application/json",
+            data: JSON.stringify()
+        }).then(function(favorite) {
+          console.log(favorite)
         });
 
 
