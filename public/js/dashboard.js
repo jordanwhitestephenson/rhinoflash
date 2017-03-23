@@ -81,6 +81,7 @@ $(document).ready(function() {
               }
             });
 
+
             //  <--BADGES-->
             $('.userDecks').append(`<div class = "dashboardEmail"><center><h2>Badge Area</h2></center></div>`)
             if (users[0].fiveDeckBadge >= 5) {
@@ -100,7 +101,7 @@ $(document).ready(function() {
             contentType: "application/json",
             data: JSON.stringify()
         }).then(function(favorite) {
-          console.log(favorite)
+          console.log(favorite[deck_id])
         });
 
 
