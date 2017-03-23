@@ -1,3 +1,5 @@
+$.ajaxSetup({xhrFields: { withCredentials: true } });
+
 $(function() {
   $('.register-button').on('click', function(event) {
     event.preventDefault();

@@ -1,3 +1,5 @@
+$.ajaxSetup({xhrFields: { withCredentials: true } });
+
 $(function() {
   var myEmail = decodeURIComponent(window.location.search).split("=")[1];
   console.log(myEmail);
