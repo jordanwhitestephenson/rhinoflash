@@ -47,7 +47,12 @@ $(document).ready(function() {
 
             $('.userDecks h3').text(users[0].name + " 's" + 'Decks : ');
             $('#dashboardStats').append(`<h3><a href ="/showDecks.html?email=${myEmail}"> Show All Decks </a> </h3>`);
-            $('#img-wrapper').append('<img src =' + imageArray[users[0].userImage] + '>');
+
+            if (users[0].userImage === null){
+              $('#img-wrapper').append('<img src ="../img/random/tazpink.png">');
+            } else {
+              $('#img-wrapper').append('<img src =' + imageArray[users[0].userImage] + '>');
+            }
             $('#dashboardEmail').append(`<p> ${users[0].email} </p>`)
 
 
@@ -72,13 +77,13 @@ $(document).ready(function() {
 
 
             //  <--BADGES-->
-            $('.userDecks').append(`<div class = "dashboardEmail"><center><h2 class = "badgeTitle">Badge Area</h2></center></div>`)
+            $('.userDecks').append(`<div class = "dashboardEmail"><center><h2>Badge Area</h2></center></div>`)
             if (users[0].fiveDeckBadge >= 5) {
                 $('.badgeArea').append('<img src="../img/badges/5deckbadge.png">' + '<img src="../img/badges/loginbadge.png">' + '<img src = "../img/badges/adultingbadge.png" height = "80%" width= "80%">' );
             } else if (users[0].perfectScore >= 1) {
                 $('.badgeArea').append('<img src="../img/badges/perfectscorebadge.png">');
             } else if (users[0].fiveFavorites <= 3) {
-                $('.badgeArea').append('<img src="../img/badges/5likebadge.png">' + '<img src="../img/badges/bearminimumbadge.png">');
+                $('.badgeArea').append('<img src="../img/badges/5likebadge.png">');
             } else {
                 $('.badgeArea').append('<img src="../img/badges/loginbadge.png">' + '<img src="../img/badges/nocommentbadge.png">');
             }

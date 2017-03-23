@@ -15,6 +15,9 @@ $(document).ready(function() {
     $('.showDashboardClass').on('click', function() {
         window.location = `/dashboard.html?email=${myEmail}`
     });
+    $('.makeDeckClass').on('click', function() {
+        window.location = `/makeDeck.html?email=${myEmail}`
+    });
 
 });
 
