@@ -196,6 +196,21 @@ ul {
     top: -10px;
     background-color: #a3477c;
     transform: translateX(-50%) rotate(-45deg); }
+    @import "compass/css3";
 
+@import url(http://fonts.googleapis.com/css?family=Karla);
+
+* {
+  box-sizing:border-box;
+  padding:0;
+  margin:0;
+}
+
+.figure {
+ 	font-weight:bold;
+  font-size:25px;
+  padding:3px 0;
+  display:block;
+}
 
 /*# sourceMappingURL=input.css.map */

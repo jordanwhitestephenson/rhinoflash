@@ -4,18 +4,18 @@ var deckID = decodeURIComponent(window.location.search).split("=")[2];
 console.log(deckID)
 $(document).ready(function() {
 
-    $('#showDeckClass').on('click', function() {
-        window.location = `/showDecks.html?email=${myEmail}`
-    });
-    $('#showStudyClass').on('click', function() {
-        window.location = `/study.html?email=${myEmail}`
-    });
-    $('#showPlayClass').on('click', function() {
-        window.location = `/play.html?email=${myEmail}`
-    });
-    $('#showDashboardClass').on('click', function() {
-        window.location = `/dashboard.html?email=${myEmail}`
-    });
+  $('.showDeckClass').on('click', function() {
+      window.location = `/showDecks.html?email=${myEmail}`
+  });
+  $('.showStudyClass').on('click', function() {
+      window.location = `/study.html?email=${myEmail}`
+  });
+  $('.showPlayClass').on('click', function() {
+      window.location = `/play.html?email=${myEmail}`
+  });
+  $('.showDashboardClass').on('click', function() {
+      window.location = `/dashboard.html?email=${myEmail}`
+  });
 
     $.ajax({
         method: 'GET',
@@ -35,7 +35,6 @@ $(document).ready(function() {
                                 <div class="flipper">
                                     <div class="front">
                                         <span id="flashcard--content_en">${card.front}</span>
-                                        <button class="flag"><i class="fa fa-flag" aria-hidden="true"></i></button>
                                     </div>` +
                                     `<div class="back">
                                         <span id="flashcard--content_es">${card.back}</span>

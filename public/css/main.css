@@ -1,12 +1,38 @@
 @import url(http://weloveiconfonts.com/api/?family=entypo);
 @import url(http://fonts.googleapis.com/css?family=Muli);
 
+#dashboardStats {
+  padding-top: 20px;
+}
+.dashboardEmail {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 10px;
+}
+#btn-small {
+    padding: 1px 1rem;
+}
+.btn {
+  padding: 1px 1rem;
+}
 .badgeArea {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  padding-top: 20px;
 }
-
+.deckcontainer{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: center;
+  border: 1px solid rgba(0, 0, 0, 0.44);;
+  padding: 10px;
+  padding-left: 10px;
+  outline: 1px;
+  outline-offset: 15px;
+}
 #monkey {
 margin-top: 100px;
 position: fixed;
@@ -18,17 +44,22 @@ bottom: 0px;
   align-items:flex-start;
 }
 
-#welcomeBear{
-  margin-top: 100px;
-  position: fixed;
-  bottom: 0px;
+.profile-stats {
+  font-size: 0.8em;
+  padding-bottom: 15px;
 }
 
-.welcomeBearDiv {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-right: 100px;
+.profile-stats p {
+  display: inline-block;
+  margin: 10px 12px;
+  color: rgba(9, 1, 1, 0.64);
+}
+
+.profile-stats span {
+  display: block;
+  margin: 0 auto;
+  font-size: 1.6em;
+  text-align: center;
 }
 
 body {
@@ -49,9 +80,9 @@ ul {
   padding:0;
 }
 a {
-  cursor:url(img/cursor.png), auto
+  cursor:url(img/cursor.png), auto;
   display:block;
-  color:#383b42;
+  color: #5c5858;
   text-decoration:none;
 }
 .bckg {
@@ -81,8 +112,8 @@ h2 {
   letter-spacing: 3px;
   color: #919191;
   font-weight: normal;
-  padding-left: 40px;
-  line-height: 60px;
+  /*padding-left: 40px;*/
+  line-height: 38px;
   text-shadow: 1px 1px 2px #fff;
   position: relative;
   flex:1;

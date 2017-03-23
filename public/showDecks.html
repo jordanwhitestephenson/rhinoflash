@@ -8,27 +8,28 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Bubblegum+Sans" rel="stylesheet">
     <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+
 </head>
 
 <body>
     <nav class="light-blue lighten-1" role="navigation">
         <div class="nav-wrapper container"><a id="logo-container" href="index.html" class="brand-logo">Flash Rhino</a>
 
-            <ul class="right hide-on-med-and-down">
-                <li><a href=".html">Logout</a></li>
-                <li><a href="#" id="showDashboardClass">Dashboard</a></li>
-                <li><a href="#" id="showPlayClass">Play Decks and Cards</a></li>
-                <li><a href="#" id="showStudyClass">Study</a></li>
-                <li><a href="#" id="showDeckClass">Show Decks</a></li>
-            </ul>
+          <ul class="right hide-on-med-and-down">
+                <li><a href="https://rhinocards.herokuapp.com/logout">Logout</a></li>
+              <li><a href="#" class="showDashboardClass">Dashboard</a></li>
+              <li><a href="#" class="showPlayClass">Play Decks and Cards</a></li>
+              <li><a href="#" class="showStudyClass">Study</a></li>
+              <li><a href="#" class="showDeckClass">Show Decks</a></li>
+          </ul>
 
-            <ul id="nav-mobile" class="side-nav">
-                <li><a href=".html">Logout</a></li>
-                <li><a href="#" id="showDashboardClass">Dashboard</a></li>
-                <li><a href="#" id="showPlayClass">Play Decks and Cards</a></li>
-                <li><a href="#" id="showStudyClass">Study</a></li>
-                <li><a href="#" id="showDeckClass">Show Decks</a></li>
-            </ul>
+          <ul id="nav-mobile" class="side-nav">
+              <li><a href="https://rhinocards.herokuapp.com/logout">Logout</a></li>
+              <li><a href="#" class="showDashboardClass">Dashboard</a></li>
+              <li><a href="#" class="showPlayClass">Play Decks and Cards</a></li>
+              <li><a href="#" class="showStudyClass">Study</a></li>
+              <li><a href="#" class="showDeckClass">Show Decks</a></li>
+          </ul>
 
             <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
         </div>
@@ -44,11 +45,8 @@
             <div id="wrap">
                 <div class="container">
                     <div class="row" id="midrow">
-                        <div class="container">
+                        <div class="container container col-md-2 clearfix">
                             <div class="row">
-                                <a class="unFavorite">newFavorite</a>
-                                <a class="favorite">favorite</a>
-                              
                                 <div class="col">
                                     <p></p>
                                     <h2></h2>
