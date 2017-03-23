@@ -8,6 +8,7 @@ $.get('https://rhinocards.herokuapp.com/isLoggedIn')
   .catch(function(error) {
     console.log(error);
   })
+var imageArray = ['"../img/random/blackcugpink.png"', '"../img/random/slothpink.png"', '"../img/random/giraffepink.png"', '"../img/random/kangaroo.png"', '"../img/random/goatpink.png"', '"../img/random/monkeypink.png"', '"../img/random/tazpink.png"'];
 
 $(document).ready(function() {
     var myEmail = decodeURIComponent(window.location.search).split("=")[1];
