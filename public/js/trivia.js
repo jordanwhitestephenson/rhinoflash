@@ -21,6 +21,7 @@ $(document).ready(function() {
   $('.makeDeckClass').on('click', function() {
       window.location = `/makeDeck.html?email=${myEmail}`
   });
+});
 
 const anotherButton =`
 <button class="btn waves-effect waves-light addCard" type="button" name="action" id="addCard-1">ANOTHER!
