@@ -15,7 +15,6 @@ $(function() {
   $('.showDashboardClass').on('click', function() {
       window.location = `/dashboard.html?email=${myEmail}`
   });
->>>>>>> master
 
   $('.addCard').on('click', function(event) {
     event.preventDefault();
