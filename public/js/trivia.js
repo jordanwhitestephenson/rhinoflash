@@ -1,7 +1,14 @@
-/* global $ document */
+/* global $ document location */
 
 
 // console.log(theQuestions, theCorrectAnswer);
+//
+const anotherButton =`
+<button class="btn waves-effect waves-light addCard" type="button" name="action" id="addCard-1">ANOTHER!
+  <i class="material-icons left">replay</i>
+  <i class="material-icons right">replay</i>
+</button>
+`
 function everything(trivia) {
   let theQuestions = [];
   let theAnswers = [];
@@ -57,6 +64,7 @@ function everything(trivia) {
         loadQuestion(current);
         loadAnswers(current);
       } else {
+        $('.anotherButton').append(anotherButton);
         questionArea.innerHTML = 'Done';
         answerArea.innerHTML = '';
       }
@@ -79,7 +87,9 @@ function everything(trivia) {
   loadQuestion(current);
   loadAnswers(current);
 }
-
+$('.anotherButton').click(() => {
+  location.reload();
+});
 $.ajax({
   method: 'GET',
   url: 'https://opentdb.com/api.php?amount=15&difficulty=medium',
