@@ -69,9 +69,14 @@ $(document).ready(function() {
                 $('#img-wrapper').append('<img src =' + imageArray[users[0].userImage] + '>');
             }
 
+            if (users[0].subject_name === null) {
+              $('#favoritedSubject').append('<p>' + 'None Yet' + '</p>')
+            } else {
+              $('#favoritedSubject').prepend('<p>' + users[0].subject_name + '</p>')
+            }
+
 
             $('#dashboardEmail').append(`<p> ${users[0].email} </p>`)
-
             $('#userPosts').append(`<p>  ${users.length} </p>`)
             $('#favoritedDecks').append(`<p> ${users.length + 1} </p>`)
 
@@ -83,10 +88,10 @@ $(document).ready(function() {
                 if (`${deck.deck_name}` === 'null') {
                     $('.userDecks').append(`<section class = "noDeck"><div class = "deckcontainer"><h2>NO DECKS</h2></div></section>`);
                 } else {
-                    $('.userDecks').append(`<div class = "deckcontainer"><ul><li><a href=${deck.deck_name}</a> ${deck.deck_name} <data-id= ${deck.deck_id}><span i class= "tiny material-icons">delete</i></span></li></ul></div>`);
+                    $('.userDecks').append(`<div class = "deckcontainer"><ul><li><a href="/study.html?email=${myEmail}?deck_id=${deck.deck_id}"</a> ${deck.deck_name} <data-id= ${deck.deck_id}></li
+                    </li></ul></div>`);
                 }
             });
-
 
             //  <--BADGES-->
             $('.userDecks').append(`<div class = "dashboardEmail"><center><h2>Badge Area</h2></center></div>`)
