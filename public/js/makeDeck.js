@@ -51,8 +51,13 @@ $(function() {
     deckObject.name = $('#NameOfDeck').val();
     deckObject.email = myEmail;
     deckObject.subject = $('#Subject option:selected').val();
-    console.log(deckObject);
-    $.post('https://rhinocards.herokuapp.com/deck', deckObject)
+    console.log('deckObjectlasjdflajslkdfjalskdfj: ',deckObject);
+    $.ajax({
+        method: 'post',
+        url: 'https://rhinocards.herokuapp.com/deck',
+        data: JSON.stringify(deckObject),
+        contentType: "application/json",
+    })
       .then(function(data, status) {
         var createCards = [];
         var deckName = deckObject.name;
