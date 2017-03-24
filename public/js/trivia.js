@@ -17,6 +17,9 @@ $(document).ready(function() {
   $('.makeDeckClass').on('click', function() {
       window.location = `/makeDeck.html?email=${myEmail}`
   });
+  $('.Trivia').on('click', function() {
+      window.location = `/trivia.html?email=${myEmail}`
+  });
 });
 
 const anotherButton =`

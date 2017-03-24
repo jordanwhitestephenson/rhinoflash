@@ -26,6 +26,9 @@ $(function() {
   $('.showDashboardClass').on('click', function() {
       window.location = `/dashboard.html?email=${myEmail}`
   });
+  $('.Trivia').on('click', function() {
+      window.location = `/trivia.html?email=${myEmail}`
+  });
 
   $('.addCard').on('click', function(event) {
     event.preventDefault();
