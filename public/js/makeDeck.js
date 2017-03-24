@@ -52,7 +52,7 @@ $(function() {
     deckObject.email = myEmail;
     deckObject.subject = $('#Subject option:selected').val();
     console.log(deckObject);
-    $.post('localhost:3000', deckObject)
+    $.post('https://rhinocards.herokuapp.com/deck', deckObject)
       .then(function(data, status) {
         console.log(data);
       })
