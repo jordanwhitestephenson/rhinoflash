@@ -8,6 +8,7 @@ $.get('https://rhinocards.herokuapp.com/isLoggedIn')
   .catch(function(error) {
     console.log(error);
   })
+var imageArray = ['"../img/random/blackcugpink.png"', '"../img/random/slothpink.png"', '"../img/random/giraffepink.png"', '"../img/random/kangaroo.png"', '"../img/random/goatpink.png"', '"../img/random/monkeypink.png"', '"../img/random/tazpink.png"'];
 
 $(document).ready(function() {
     var myEmail = decodeURIComponent(window.location.search).split("=")[1];
@@ -54,16 +55,18 @@ $(document).ready(function() {
             $('.badgeArea *').remove();
             $('.div2  *').remove();
             $('.userDecks *').remove();
-
-
             $('.userDecks h3').text(users[0].name + " 's" + 'Decks : ');
             $('#dashboardStats').append(`<h3><a href ="/showDecks.html?email=${myEmail}"> Show All Decks </a> </h3>`);
+
+
 
             if (users[0].userImage === null){
               $('#img-wrapper').append('<img src ="../img/random/tazpink.png">');
             } else {
               $('#img-wrapper').append('<img src =' + imageArray[users[0].userImage] + '>');
             }
+
+
             $('#dashboardEmail').append(`<p> ${users[0].email} </p>`)
             $('#favoritedSubject').append(`<p> ${users[0].subject_name} </p>`);
             $('#userPosts').append(`<p>  ${users.length} </p>`)
@@ -81,6 +84,7 @@ $(document).ready(function() {
                 $('.userDecks').append(`<div class = "deckcontainer"><ul><li><a href=${deck.deck_name}</a> ${deck.deck_name} <data-id= ${deck.deck_id}><span i class= "tiny material-icons">delete</i></span></li></ul></div>`);
               }
             });
+
 
             //  <--BADGES-->
             $('.userDecks').append(`<div class = "dashboardEmail"><center><h2>Badge Area</h2></center></div>`)
@@ -101,7 +105,7 @@ $(document).ready(function() {
             contentType: "application/json",
             data: JSON.stringify()
         }).then(function(favorite) {
-          console.log(favorite)
+          console.log(favorite[deck_id])
         });
 
 
