@@ -1,18 +1,16 @@
-$.ajaxSetup({xhrFields: { withCredentials: true } });
-$.get('https://rhinocards.herokuapp.com/isLoggedIn')
-  .then(function(isLoggedIn) {
-    if (!isLoggedIn) {
-      window.location.href = 'https://flashrhino.com';
-    }
-  })
-  .catch(function(error) {
-    console.log(error);
-  })
+// $.ajaxSetup({xhrFields: { withCredentials: true } });
+// $.get('https://rhinocards.herokuapp.com/isLoggedIn')
+//   .then(function(isLoggedIn) {
+//     if (!isLoggedIn) {
+//       window.location.href = 'https://flashrhino.com';
+//     }
+//   })
+//   .catch(function(error) {
+//     console.log(error);
+//   })
 
 var myEmail = decodeURIComponent(window.location.search).split("=")[1];
-console.log(myEmail);
 var deckID = decodeURIComponent(window.location.search).split("=")[2];
-console.log(deckID)
 $(document).ready(function() {
 
   $('.showDeckClass').on('click', function() {
@@ -39,16 +37,20 @@ const anotherButton =`
 </button>
 `
 function everything(trivia) {
+  let count = 0;
+  let correctAnswerArray = [];
   let theQuestions = [];
   let theAnswers = [];
   let theCorrectAnswer = [];
   const allQuestions = {};
+  correctAnswerArray.push('Get ready!')
 
   trivia.forEach((current) => {
     const randomNumber = Math.floor(Math.random() * 3);
     theQuestions = current.question;
     theAnswers = current.incorrect_answers;
     theCorrectAnswer = current.correct_answer;
+    correctAnswerArray.push(theCorrectAnswer)
     theAnswers.splice(randomNumber, 0, theCorrectAnswer);
     theAnswers.push(randomNumber);
     allQuestions[theQuestions] = theAnswers;
@@ -60,6 +62,8 @@ function everything(trivia) {
   let current = 0;
 
   function loadQuestion(curr) {
+    $('.actualAnswer').text(correctAnswerArray[count])
+    count++;
     const question = Object.keys(allQuestions)[curr];
     questionArea.innerHTML = '';
     questionArea.innerHTML = question;
