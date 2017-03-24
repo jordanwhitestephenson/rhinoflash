@@ -22,7 +22,7 @@ $('.stampede').click(() => {
     for (let i = 0; i < 75; i++) {
       setTimeout(() => {
         margin = generateRandom();
-        duration = (Math.floor(Math.random() * 1300)) + 15000;
+        duration = (Math.floor(Math.random() * 15000)) + 15000;
         dinoNumber = (Math.floor(Math.random() * 8))
         console.log(duration);
         let img = $('<img id=dino class=dinosaur'+i+'>');
