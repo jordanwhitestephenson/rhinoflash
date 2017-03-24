@@ -1,13 +1,17 @@
-$.ajaxSetup({xhrFields: { withCredentials: true } });
-$.get('https://rhinocards.herokuapp.com/isLoggedIn')
-  .then(function(isLoggedIn) {
-    if (!isLoggedIn) {
-      window.location.href = 'https://flashrhino.com';
+$.ajaxSetup({
+    xhrFields: {
+        withCredentials: true
     }
-  })
-  .catch(function(error) {
-    console.log(error);
-  })
+});
+$.get('https://rhinocards.herokuapp.com/isLoggedIn')
+    .then(function(isLoggedIn) {
+        if (!isLoggedIn) {
+            window.location.href = 'https://flashrhino.com';
+        }
+    })
+    .catch(function(error) {
+        console.log(error);
+    })
 var imageArray = ['"../img/random/blackcugpink.png"', '"../img/random/slothpink.png"', '"../img/random/giraffepink.png"', '"../img/random/kangaroo.png"', '"../img/random/goatpink.png"', '"../img/random/monkeypink.png"', '"../img/random/tazpink.png"'];
 
 $(document).ready(function() {
@@ -33,8 +37,8 @@ $(document).ready(function() {
     });
 
     // <--clicking on user overview-->
-    function appendThings () {
-      console.log('hello');
+    function appendThings() {
+        console.log('hello');
         $.ajax({
             method: 'GET',
             url: `https://rhinocards.herokuapp.com/username/${myEmail}`,
@@ -58,22 +62,24 @@ $(document).ready(function() {
             $('.userDecks h3').text(users[0].name + " 's" + 'Decks : ');
             $('#dashboardStats').append(`<h3><a href ="/showDecks.html?email=${myEmail}"> Show All Decks </a> </h3>`);
 
-            if (users[0].subject_name === null){
-              $('#img-wrapper').append('<img src ="../img/random/tazpink.png">');
+
+            // <subject name>
+            if (users[0].subject_name === null) {
+                $('#favoritedSubject').append(`<p> None Yet </p>`);
             } else {
-              $('#img-wrapper').append('<img src =' + imageArray[users[0].userImage] + '>');
+                $('#favoritedSubject').append(`<p> ${users[0].subject_name} </p>`);
             }
 
-
-            if (users[0].userImage === null){
-              $('#img-wrapper').append('<img src ="../img/random/tazpink.png">');
+            // <user image>
+            if (users[0].userImage === null) {
+                $('#img-wrapper').append('<img src ="../img/random/tazpink.png">');
             } else {
-              $('#img-wrapper').append('<img src =' + imageArray[users[0].userImage] + '>');
+                $('#img-wrapper').append('<img src =' + imageArray[users[0].userImage] + '>');
             }
 
 
             $('#dashboardEmail').append(`<p> ${users[0].email} </p>`)
-            $('#favoritedSubject').append(`<p> ${users[0].subject_name} </p>`);
+
             $('#userPosts').append(`<p>  ${users.length} </p>`)
             $('#favoritedDecks').append(`<p> ${users.length + 1} </p>`)
 
@@ -82,19 +88,18 @@ $(document).ready(function() {
                 return _.get(deck, 'deck_name')
             });
             unique.forEach(function(deck) {
-              if (`${deck.deck_name}` === 'null'){
-                $('.userDecks').append(`<section class = "noDeck"><div class = "deckcontainer"><h2>NO DECKS</h2></div></section>`);
-              }
-              else{
-                $('.userDecks').append(`<div class = "deckcontainer"><ul><li><a href=${deck.deck_name}</a> ${deck.deck_name} <data-id= ${deck.deck_id}><span i class= "tiny material-icons">delete</i></span></li></ul></div>`);
-              }
+                if (`${deck.deck_name}` === 'null') {
+                    $('.userDecks').append(`<section class = "noDeck"><div class = "deckcontainer"><h2>NO DECKS</h2></div></section>`);
+                } else {
+                    $('.userDecks').append(`<div class = "deckcontainer"><ul><li><a href=${deck.deck_name}</a> ${deck.deck_name} <data-id= ${deck.deck_id}><span i class= "tiny material-icons">delete</i></span></li></ul></div>`);
+                }
             });
 
 
             //  <--BADGES-->
             $('.userDecks').append(`<div class = "dashboardEmail"><center><h2>Badge Area</h2></center></div>`)
             if (users[0].fiveDeckBadge >= 5) {
-                $('.badgeArea').append('<img src="../img/badges/5deckbadge.png">' + '<img src="../img/badges/loginbadge.png">' + '<img src = "../img/badges/adultingbadge.png" height = "80%" width= "80%">' );
+                $('.badgeArea').append('<img src="../img/badges/5deckbadge.png">' + '<img src="../img/badges/loginbadge.png">' + '<img src = "../img/badges/adultingbadge.png" height = "80%" width= "80%">');
             } else if (users[0].perfectScore >= 1) {
                 $('.badgeArea').append('<img src="../img/badges/perfectscorebadge.png">');
             } else if (users[0].fiveFavorites <= 3) {
@@ -104,17 +109,23 @@ $(document).ready(function() {
             }
 
         });
+
+        // <favorite stats>
         $.ajax({
             method: 'GET',
             url: `https://rhinocards.herokuapp.com/favorite`,
             contentType: "application/json",
             data: JSON.stringify()
         }).then(function(favorite) {
-          console.log(favorite[deck_id])
+          console.log(favorite.Object)
+            // var myNewArray = $(favorite[0].username_email).filter(function(n, i) {
+            //   console.log('0129u3')
+            //     return (n === myEmail);
+            //
+            // });
+            // console.log = myNewArray
+
         });
-
-
-
 
         var title = $(this).data('title');
         var userBadges = $(this).data('userbadge');
