@@ -62,14 +62,6 @@ $(document).ready(function() {
             $('.userDecks h3').text(users[0].name + " 's" + 'Decks : ');
             $('#dashboardStats').append(`<h3><a href ="/showDecks.html?email=${myEmail}"> Show All Decks </a> </h3>`);
 
-
-            // <subject name>
-            if (users[0].subject_name === null) {
-                $('#favoritedSubject').append(`<p> None Yet </p>`);
-            } else {
-                $('#favoritedSubject').append(`<p> ${users[0].subject_name} </p>`);
-            }
-
             // <user image>
             if (users[0].userImage === null) {
                 $('#img-wrapper').append('<img src ="../img/random/tazpink.png">');

@@ -363,6 +363,15 @@ body, html {
   border-bottom: 1px solid #FFFFFF;
   padding: 20px;
 }
+.previous {
+  font-size: 15px;
+  font-weight: 700;
+  font-style: italic;
+  border-top: 1px solid #FFFFFF;
+  padding: 10px;
+  padding-left: 30%;
+  padding-right: 30%;
+}
 
 .answers div {
   padding: 10px 0 0 0;
@@ -373,7 +382,9 @@ body, html {
   cursor: pointer;
   color: #FBCB43;
 }
-
+.checkAnswers {
+  padding-top: 30px;
+}
 .answers {
   padding: 0px 0 10px 0px;
 }

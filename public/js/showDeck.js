@@ -44,7 +44,7 @@ $(document).ready(function() {
             console.log(unique)
         });
         unique.forEach(function(deck) {
-            $('.col').append(`<div class="flip-container" id="flashcard" style="margin: 20px;"><div class="front"><div class="flipper"></div>
+            $('.col').append(`<div class="one-deck"><div class="flip-container" id="flashcard" style="margin: 20px;"><div class="front"><div class="flipper"></div>
                     <span id="flashcard--content_en"><a href="${deck.deck_id}"></a>${deck.deck_name}</span>
                   </div>
                   </div>
@@ -58,7 +58,7 @@ $(document).ready(function() {
                    +
 
                 `<a class="waves-effect waves-light btn" id= ${deck.deck_id} href="/study.html?email=${myEmail}?deck_id=${deck.deck_id}">Study</a>
-                  </div></div>`)
+                  </div></div></div>`)
         });
 
         $(".unFavorite").click(function(event) {
@@ -100,18 +100,14 @@ $(document).ready(function() {
                 });
             }
         });
-        $('.deleteButton').on('click',function(event){
+        $(document).on('click', '.deleteButton', function(event){
           event.preventDefault();
           var deleteID = $(this).attr('id');
-          console.log(deleteID)
-          console.log('YA!')
+          $(this).parent().parent().remove();
           $.ajax({
               method: "DELETE",
-              url: `https://rhinocards.herokuapp.com/username/${myEmail}/${deleteID}`,
-              data: JSON.stringify(unfavoriteDecks),
-              contentType: "application/json"
+              url: 'https://rhinocards.herokuapp.com/deck/' + deleteID
           }).then(response => {
-              console.log('deleted', unfavoriteDecks);
           });
 
         })

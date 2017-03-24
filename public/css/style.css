@@ -21,7 +21,9 @@
 * {
   box-sizing: border-box;
 }
-
+.content {
+  min-height: calc(100vh - 20vh);
+}
 body {
   line-height: 1.4;
   background-color: #e3e2e3;
@@ -43,7 +45,14 @@ body {
 element.style {
   background-color: #26a69a;
 }
-
+.heightController {
+  height: 270px;
+}
+#dino {
+    position: absolute;
+    left: -1000px;
+    margin-top: 0px;
+}
 .animalBorder {
     border-radius: 150px;
     border-width: thick;
