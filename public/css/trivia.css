@@ -122,6 +122,9 @@ wrap{
 	font-weight:bold;
 	padding: 30px 25px 33px 25px;
 }
+.spacing {
+  height: 200px;
+}
 
 .navbar-nav li a:hover{
 	background-color:#d9d9d9;
