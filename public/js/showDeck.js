@@ -110,7 +110,9 @@ $(document).ready(function() {
           $.ajax({
               method: "DELETE",
               url: 'https://rhinocards.herokuapp.com/deck/' + deleteID
-          }).then(response => {
+          }).then((data, status) => {
+            console.log(data);
+            console.log(status);
           });
 
         })
