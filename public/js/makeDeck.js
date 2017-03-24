@@ -48,13 +48,13 @@ $(function() {
     deckObject.name = $('#NameOfDeck').val();
     deckObject.email = myEmail;
     deckObject.subject = $('#Subject option:selected').val();
-
-    $.post('https://rhinocards.herokuapp.com/deck', deckObject)
+    console.log(deckObject);
+    $.post('localhost:3000', deckObject)
       .then(function(data, status) {
         console.log(data);
       })
       .catch(function(error) {
-        console.log(error);
+        console.log('ERRORRR',error);
       })
     var createCards = [];
     var deckName = deckObject.name;
@@ -67,7 +67,7 @@ $(function() {
     }
     Promise.all(createCards)
     .then(() => {
-      window.location.href = 'http://flashrhino.com/dashboard.html?email=' + myEmail;
+      window.location.href = 'https://flashrhino.com/dashboard.html?email=' + myEmail;
     })
   })
 

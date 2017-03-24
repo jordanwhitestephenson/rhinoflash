@@ -104,13 +104,10 @@ $(document).ready(function() {
           event.preventDefault();
           var deleteID = $(this).attr('id');
           $(this).parent().parent().remove();
-          console.log(deleteID)
-          console.log('YA!')
           $.ajax({
               method: "DELETE",
               url: 'https://rhinocards.herokuapp.com/deck/' + deleteID
           }).then(response => {
-              console.log('deleted', unfavoriteDecks);
           });
 
         })
