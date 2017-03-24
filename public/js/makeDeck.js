@@ -54,24 +54,24 @@ $(function() {
     console.log(deckObject);
     $.post('https://rhinocards.herokuapp.com/deck', deckObject)
       .then(function(data, status) {
-        console.log(data);
+        var createCards = [];
+        var deckName = deckObject.name;
+        for (let i = 0; i < cardCount; i++) {
+          var cardFront = $('#Question-' + (i + 1)).val();
+          var cardBack = $('#Answer-' + (i + 1)).val();
+          var cardObject = {front: cardFront, back: cardBack, name: deckName};
+          console.log('card Object:',cardObject);
+          createCards.push($.post('https://rhinocards.herokuapp.com/flashcard', cardObject))
+        }
+        Promise.all(createCards)
+        .then(() => {
+          window.location.href = 'https://flashrhino.com/dashboard.html?email=' + myEmail;
+        })
       })
       .catch(function(error) {
         console.log('ERRORRR',error);
       })
-    var createCards = [];
-    var deckName = deckObject.name;
-    for (let i = 0; i < cardCount; i++) {
-      var cardFront = $('#Question-' + (i + 1)).val();
-      var cardBack = $('#Answer-' + (i + 1)).val();
-      var cardObject = {front: cardFront, back: cardBack, name: deckName};
-      console.log('card Object:',cardObject);
-      createCards.push($.post('https://rhinocards.herokuapp.com/flashcard', cardObject))
-    }
-    Promise.all(createCards)
-    .then(() => {
-      window.location.href = 'https://flashrhino.com/dashboard.html?email=' + myEmail;
-    })
+
   })
 
   // $("form").on("submit", function(event) {
