@@ -78,7 +78,7 @@ $(document).ready(function() {
 
             $('#dashboardEmail').append(`<p> ${users[0].email} </p>`)
             $('#userPosts').append(`<p>  ${users.length} </p>`)
-            $('#favoritedDecks').append(`<p> ${users.length + 1} </p>`)
+            $('#favoritedDecks').append(`<p> ${users.length} </p>`)
 
             var unique = _.uniqBy(users, 'deck_name')
             var pluck = unique.map(function(deck) {
