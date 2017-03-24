@@ -122,9 +122,6 @@ wrap{
 	font-weight:bold;
 	padding: 30px 25px 33px 25px;
 }
-.spacing {
-  height: 350px;
-}
 
 .navbar-nav li a:hover{
 	background-color:#d9d9d9;
@@ -224,6 +221,9 @@ wrap{
 	-moz-transform: rotateY(180deg);
 	-o-transform: rotateY(180deg);
 	transform: rotateY(180deg);
+}
+.myFooter {
+  margin-top: 300px;
 }
 
 .container .flip-container, .front, .back {
