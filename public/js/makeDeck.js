@@ -62,8 +62,8 @@ $(function() {
         var createCards = [];
         var deckName = deckObject.name;
         for (let i = 0; i < cardCount; i++) {
-          var cardFront = $('#Question-' + (i + 1)).val();
-          var cardBack = $('#Answer-' + (i + 1)).val();
+          var cardFront = $('#Answer-' + (i + 1)).val();
+          var cardBack = $('#Question-' + (i + 1)).val();
           var cardObject = {front: cardFront, back: cardBack, name: deckName};
           console.log('card Object:',cardObject);
           createCards.push($.post('https://rhinocards.herokuapp.com/flashcard', cardObject))
