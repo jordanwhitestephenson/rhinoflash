@@ -34,7 +34,8 @@ function everything(trivia) {
   let theQuestions = [];
   let theAnswers = [];
   let theCorrectAnswer = [];
-  const allQuestions = {};
+  let allQuestions = {};
+  let allQuestionsTwo = {};
   correctAnswerArray.push('Get ready!')
 
   trivia.forEach((current) => {
@@ -45,8 +46,14 @@ function everything(trivia) {
     correctAnswerArray.push(theCorrectAnswer)
     theAnswers.splice(randomNumber, 0, theCorrectAnswer);
     theAnswers.push(randomNumber);
-    allQuestions[theQuestions] = theAnswers;
+    allQuestionsTwo[theQuestions] = theAnswers;
   });
+  console.log(allQuestionsTwo);
+  allQuestionsTwo = JSON.stringify(allQuestionsTwo)
+  console.log(allQuestionsTwo);
+  allQuestions = decodeURIComponent(allQuestionsTwo);
+  allQuestions = JSON.parse(allQuestions)
+  console.log(allQuestions);
 
   const questionArea = document.getElementsByClassName('questions')[0];
   const answerArea = document.getElementsByClassName('answers')[0];

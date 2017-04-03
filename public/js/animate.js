@@ -1,12 +1,12 @@
-/*global $*/
+/*global $ window*/
 
 const img = $('#dino');
 const width = img.get(0).width;
 const screenWidth = $(window).width();
-var dino = ['../img/rhinoGif/rhino1.gif', '../img/rhinoGif/rhino2.gif',
+const dino = ['../img/rhinoGif/rhino1.gif', '../img/rhinoGif/rhino2.gif',
   '../img/rhinoGif/rhino3.gif', '../img/rhinoGif/rhino4.gif',
   '../img/rhinoGif/rhino5.gif', '../img/rhinoGif/rhino6.gif',
-  '../img/rhinoGif/rhino7.gif', '../img/rhinoGif/rhino8.gif']
+  '../img/rhinoGif/rhino7.gif', '../img/rhinoGif/rhino8.gif'];
 let duration = 1700;
 let margin;
 let dinoNumber;
